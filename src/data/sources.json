@@ -1,0 +1,42 @@
+[
+  {
+    "id": "contour",
+    "title": "Preference for Curvature: A Historical and Conceptual Framework",
+    "authors": "Gómez-Puerto, Munar & Nadal",
+    "year": 2016,
+    "url": "https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2015.00712/full",
+    "summary": "Une revue des recherches sur la préférence pour les contours courbes. Les effets varient selon les objets, les personnes et le contexte."
+  },
+  {
+    "id": "logo",
+    "title": "Does Your Company Have the Right Logo?",
+    "authors": "Jiang, Gorn, Galli & Chattopadhyay",
+    "year": 2016,
+    "url": "https://ira.lib.polyu.edu.hk/handle/10397/64985",
+    "summary": "Dans les expériences sur des logos, les contours circulaires et angulaires orientent certaines associations de douceur et de dureté. Le contexte et les messages modèrent ces effets."
+  },
+  {
+    "id": "wcag-target",
+    "title": "WCAG 2.2 · Taille des cibles (2.5.8)",
+    "authors": "W3C",
+    "year": 2023,
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+    "summary": "Le seuil AA est de 24 × 24 pixels CSS, avec des exceptions dont l'espacement. 44 × 44 pixels correspond au critère renforcé 2.5.5 (AAA)."
+  },
+  {
+    "id": "wcag-contrast",
+    "title": "WCAG 2.2 · Contraste minimum (1.4.3)",
+    "authors": "W3C",
+    "year": 2023,
+    "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+    "summary": "Le texte courant requiert un contraste d'au moins 4,5:1 au niveau AA. Le grand texte bénéficie d'un seuil de 3:1."
+  },
+  {
+    "id": "rgaa",
+    "title": "RGAA 4.1.2 · Critères et tests",
+    "authors": "DINUM",
+    "year": 2023,
+    "url": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/",
+    "summary": "Dernière version publiée, vérifiée le 30 septembre 2026. Le référentiel français comprend 106 critères. L’outil examine des contrastes et invite à vérifier manuellement le clavier, le focus et les étiquettes. La version 5 est annoncée pour fin 2026."
+  }
+]
