@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import { RotateCcw } from 'lucide-react'
 import { Button } from './ui/button'
 import { Field, FieldLabel } from './ui/field'
+import { ParameterSlider } from './parameter-slider'
 import { AuditRow } from './audit-row'
 import { auditButton, defaultButton, shapes, sources, type ButtonDesign, type ButtonMetrics } from '@/lib/model'
 
@@ -29,17 +30,14 @@ export function ButtonWorkshop({design,onChange,onMeasure}:{design:ButtonDesign;
   },[design,onMeasure])
   const update=(next:Partial<ButtonDesign>)=>{setActivated(false);onChange({...design,...next})}
   const result=auditButton(design,metrics)
-  const numeric=(key:'fontSize'|'paddingX'|'paddingY'|'radius'|'borderWidth',label:string,min:number,max:number)=> <Field key={key}>
-    <FieldLabel htmlFor={`button-${key}`}>{label}<span>{design[key]} px</span></FieldLabel>
-    <input id={`button-${key}`} type="range" min={min} max={max} step={1} value={design[key]} onChange={event=>update({[key]:Number(event.target.value)})}/>
-  </Field>
+  const numeric=(key:'fontSize'|'fontWeight'|'paddingX'|'paddingY'|'radius'|'borderWidth',label:string,min:number,max:number,step=1,unit='px')=> <ParameterSlider key={key} id={`button-${key}`} label={label} value={design[key]} min={min} max={max} step={step} unit={unit} onChange={value=>update({[key]:value})}/>
   const color=(key:'foreground'|'background'|'canvas'|'borderColor',label:string)=><Field key={key}><FieldLabel htmlFor={`button-${key}`}>{label}</FieldLabel><div className="workshop-color"><input id={`button-${key}`} type="color" value={design[key]} onChange={event=>update({[key]:event.target.value})}/><span>{design[key].toUpperCase()}</span></div></Field>
   return <div className="button-workshop">
     <section className="workshop-settings" aria-labelledby="workshop-settings-title">
       <div className="workshop-section-head"><h2 id="workshop-settings-title">Réglages</h2><Button variant="ghost" size="icon-sm" aria-label="Réinitialiser le bouton" onClick={()=>onChange(defaultButton(design.family))}><RotateCcw/></Button></div>
       <Field><FieldLabel htmlFor="button-family">Forme de départ</FieldLabel><select id="button-family" value={design.family} onChange={event=>{const preset=defaultButton(event.target.value);update({family:preset.family,radius:preset.radius})}}>{shapes.map(shape=><option key={shape.id} value={shape.id}>{shape.name}</option>)}</select></Field>
       <Field><FieldLabel htmlFor="button-label">Texte du bouton</FieldLabel><input id="button-label" type="text" maxLength={120} value={design.label} onChange={event=>update({label:event.target.value})}/></Field>
-      <div className="workshop-fields">{numeric('fontSize','Taille du texte',8,48)}<Field><FieldLabel htmlFor="button-weight">Graisse du texte</FieldLabel><select id="button-weight" value={design.fontWeight} onChange={event=>update({fontWeight:Number(event.target.value)})}>{[300,400,500,600,650,700,800,900].map(weight=><option key={weight} value={weight}>{weight}</option>)}</select></Field>{numeric('paddingX','Padding horizontal',0,64)}{numeric('paddingY','Padding vertical',0,48)}{numeric('radius','Arrondi',0,96)}{numeric('borderWidth','Épaisseur de bordure',0,8)}</div>
+      <div className="workshop-parameters">{numeric('fontSize','Taille du texte',8,48)}{numeric('fontWeight','Graisse',300,900,50,'')}{numeric('paddingX','Padding horizontal',0,64)}{numeric('paddingY','Padding vertical',0,48)}{numeric('radius','Arrondi',0,96)}{numeric('borderWidth','Bordure',0,8)}</div>
       {['organic','triangle'].includes(design.family) && <p className="helper">Cette famille inspire l’identité ; le bouton garde un contour régulier pour le texte.</p>}
       <h3>Couleurs</h3><div className="workshop-fields">{color('foreground','Texte')}{color('background','Fond du bouton')}{color('canvas','Fond de l’aperçu')}{color('borderColor','Bordure')}</div>
     </section>
