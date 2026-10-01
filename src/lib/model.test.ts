@@ -2,9 +2,9 @@ import { describe, expect, it } from 'vitest'
 import { audit, auditButton, defaultButton, contrastRatio, defaultProject, parseProject, preset, rankShapes, shapes, sources } from './model'
 describe('Recommandations',()=>{
   it('adapte la première piste au contexte sans retirer de familles',()=>{
-    expect(rankShapes({sector:'sante',tone:'accessible',audience:'general'})[0].shape.id).toBe('soft')
-    expect(rankShapes({sector:'finance',tone:'rigoureux',audience:'expert'})[0].shape.id).toBe('square')
-    expect(rankShapes({sector:'culture',tone:'expressif',audience:'jeune'})[0].shape.id).toBe('triangle')
+    expect(rankShapes({usage:'button',sector:'sante',tone:'accessible',audience:'general'})[0].shape.id).toBe('soft')
+    expect(rankShapes({usage:'button',sector:'finance',tone:'rigoureux',audience:'expert'})[0].shape.id).toBe('square')
+    expect(rankShapes({usage:'identity',sector:'culture',tone:'expressif',audience:'jeune'})[0].shape.id).toBe('triangle')
     expect(rankShapes(defaultProject().context)).toHaveLength(6)
   })
   it('associe chaque famille à des références existantes',()=>{
@@ -71,5 +71,26 @@ describe('Atelier bouton',()=>{
   for(const change of [{fontSize:0},{paddingX:Infinity},{foreground:'bad'},{label:'x'.repeat(121)}]) {
    expect(()=>parseProject({...defaultProject(),button:{...defaultButton(),...change}})).toThrow('Bouton invalide')
   }
+ })
+})
+
+
+describe('Usage et styles sauvegardés',()=>{
+ it('fait passer l’usage avant les associations de ton',()=>{
+  const context={sector:'culture',tone:'expressif',audience:'jeune',usage:'button'}
+  expect(['square','soft','pill']).toContain(rankShapes(context)[0].shape.id)
+  expect(rankShapes({...context,usage:'card'})[0].shape.id).toBe('square')
+  expect(rankShapes({...context,usage:'identity'})[0].shape.id).toBe('triangle')
+  expect(rankShapes({...context,usage:'badge'})[0].shape.id).toBe('pill')
+ })
+ it('préserve les styles et migre les anciens contextes',()=>{
+  const project=defaultProject()
+  project.buttonStyles=[{id:'one',name:'Action principale',design:{...project.button,paddingX:32}}]
+  const restored=parseProject(JSON.parse(JSON.stringify(project)))
+  expect(restored.buttonStyles[0].design.paddingX).toBe(32)
+  expect(restored.buttonStyles[0].design).not.toBe(project.buttonStyles[0].design)
+  const legacy={...project,context:{sector:'sante',tone:'accessible',audience:'general'}}
+  expect(parseProject(legacy).context.usage).toBe('button')
+  expect(()=>parseProject({...project,buttonStyles:[{id:'one',name:'',design:project.button}]})).toThrow('Styles de bouton invalides')
  })
 })

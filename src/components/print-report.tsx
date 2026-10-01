@@ -1,4 +1,4 @@
-import { audit, auditButton, shapes, sources, type ButtonMetrics, type Project } from '@/lib/model'
+import { audit, auditButton, usageOptions, shapes, sources, type ButtonMetrics, type Project } from '@/lib/model'
 import { ShapeGlyph } from './shape-glyph'
 
 export function PrintReport({project,chosen,buttonMetrics}:{project:Project;chosen:number|null;buttonMetrics:ButtonMetrics|null}) {
@@ -12,7 +12,7 @@ export function PrintReport({project,chosen,buttonMetrics}:{project:Project;chos
       <header className="report-header"><img src="/favicon.svg" width="28" height="28" alt=""/><span>Forme</span><span>{new Date().toLocaleDateString('fr-FR')}</span></header>
       <h1>{project.name || 'Exploration de formes'}</h1>
       <h2>Contexte</h2>
-      <p>{sector[project.context.sector]} · {tone[project.context.tone]} · {audience[project.context.audience]}</p>
+      <p>{usageOptions.find(([id])=>id===project.context.usage)?.[1]} · {sector[project.context.sector]} · {tone[project.context.tone]} · {audience[project.context.audience]}</p>
       <h2>Systèmes comparés</h2>
       <div className="report-systems">{project.systems.slice(0,project.comparison.length).map((system,index)=>{
         const shape=shapes.find(shape=>shape.id===system.family)!
@@ -44,7 +44,7 @@ export function PrintReport({project,chosen,buttonMetrics}:{project:Project;chos
       <h2>Justification des familles</h2>
       {project.systems.slice(0,project.comparison.length).map((system,index)=>{
         const shape=shapes.find(shape=>shape.id===system.family)!
-        return <article className="report-rationale" key={index}><h3>Option {index===0 ? 'A':'B'} · {shape.name}</h3><p>{shape.effect}</p><p><strong>Contextes favorables :</strong> {shape.favorable.join(', ')}.</p><p><strong>À éviter :</strong> {shape.avoid.join(', ')}.</p><p><strong>Attention :</strong> {shape.attention}</p><p><strong>Références :</strong> {shape.sourceIds.map(id=>sources.find(source=>source.id===id)!.authors).join(' ; ')}.</p></article>
+        return <article className="report-rationale" key={index}><h3>Option {index===0 ? 'A':'B'} · {shape.name}</h3><p><strong>Émotions et associations possibles :</strong> {shape.associations.join(' · ')}.</p><p>{shape.effect}</p><p><strong>Contextes favorables :</strong> {shape.favorable.join(', ')}.</p><p><strong>À éviter :</strong> {shape.avoid.join(', ')}.</p><p><strong>Attention :</strong> {shape.attention}</p><p><strong>Références :</strong> {shape.sourceIds.map(id=>sources.find(source=>source.id===id)!.authors).join(' ; ')}.</p></article>
       })}
       {project.favorites.length>0 && <><h2>Favoris</h2><p>{project.favorites.map(id=>shapes.find(shape=>shape.id===id)!.name).join(' · ')}</p></>}
       <h2>Références</h2>

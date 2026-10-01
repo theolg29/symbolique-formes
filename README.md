@@ -24,7 +24,7 @@ Aucun backend, aucune clé API. Satoshi est chargée directement depuis Fontshar
 
 Les outils sont accessibles indépendamment dans la barre latérale : Recommander, Familles, Comparer, Créer un bouton, Référentiels et Favoris.
 
-1. Commencer par l’écran de contexte : décrire le secteur, le ton de marque et le public.
+1. Commencer par l’écran de contexte : décrire l’usage prévu, le secteur, le ton de marque et le public.
 2. Cliquer sur « Recommander une forme » pour afficher sur place la forme la plus adaptée au contexte et sa justification. L’onglet Familles présente séparément le catalogue des six formes, sans classement, avec leurs effets perçus, limites, variantes et références.
 3. Ajouter jusqu’à deux familles à la comparaison. Un compteur dans la navigation indique la sélection ; le bouton devient noir une fois la famille sélectionnée et permet de la retirer. Les explications et références s’ouvrent dans une popup.
 4. Retenir une option en comparant la même interface ou la même composition d’identité ; ajuster les rayons, espacements, cibles et couleurs.
@@ -69,3 +69,5 @@ Les tests unitaires couvrent les contrastes de référence, seuils de taille, im
 Les logos des éditeurs de référentiels sont stockés localement dans `public/logos/`, avec leurs URL d’origine. Les états des contrôles utilisent des pastilles pleines et des descriptions accessibles, sans badges de statut visibles.
 
 Les réglages du bouton sont sauvegardés dans le navigateur et inclus dans les exports JSON et PDF. Les anciens fichiers JSON sans bouton restent importables.
+
+L’usage prévu est prioritaire dans la recommandation (8 points, puis ton 3, secteur 2, public 1). Les justifications détaillent les choix correspondants, sans score de confiance artificiel. Les styles de boutons peuvent être enregistrés sous un nom et réappliqués ; ils sont conservés dans l’export JSON. Les anciens exports sans usage ou styles sont importables. Les références comprennent les recommandations Orange. Les émotions et associations des formes sont des interprétations à valider en contexte, distinctes des tendances étudiées.

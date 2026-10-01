@@ -1,12 +1,15 @@
 import { useLayoutEffect, useRef, useState } from 'react'
-import { RotateCcw } from 'lucide-react'
+import { RotateCcw, Save } from 'lucide-react'
 import { Button } from './ui/button'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from './ui/dialog'
 import { Field, FieldLabel } from './ui/field'
 import { ParameterSlider } from './parameter-slider'
 import { AuditRow } from './audit-row'
-import { auditButton, defaultButton, shapes, sources, type ButtonDesign, type ButtonMetrics } from '@/lib/model'
+import { auditButton, defaultButton, shapes, sources, type ButtonDesign, type ButtonMetrics, type ButtonStyle } from '@/lib/model'
 
-export function ButtonWorkshop({design,onChange,onMeasure}:{design:ButtonDesign;onChange:(design:ButtonDesign)=>void;onMeasure:(metrics:ButtonMetrics)=>void}) {
+export function ButtonWorkshop({design,onChange,onMeasure,styles,onSave}:{design:ButtonDesign;onChange:(design:ButtonDesign)=>void;onMeasure:(metrics:ButtonMetrics)=>void;styles:ButtonStyle[];onSave:(name:string,design:ButtonDesign)=>void}) {
+  const [saveOpen,setSaveOpen]=useState(false)
+  const [styleName,setStyleName]=useState('')
   const preview=useRef<HTMLButtonElement>(null)
   const [metrics,setMetrics]=useState<ButtonMetrics>({width:0,height:0,radius:0})
   const [activated,setActivated]=useState(false)
@@ -34,7 +37,8 @@ export function ButtonWorkshop({design,onChange,onMeasure}:{design:ButtonDesign;
   const color=(key:'foreground'|'background'|'canvas'|'borderColor',label:string)=><Field key={key}><FieldLabel htmlFor={`button-${key}`}>{label}</FieldLabel><div className="workshop-color"><input id={`button-${key}`} type="color" value={design[key]} onChange={event=>update({[key]:event.target.value})}/><span>{design[key].toUpperCase()}</span></div></Field>
   return <div className="button-workshop">
     <section className="workshop-settings" aria-labelledby="workshop-settings-title">
-      <div className="workshop-section-head"><h2 id="workshop-settings-title">Réglages</h2><Button variant="ghost" size="icon-sm" aria-label="Réinitialiser le bouton" onClick={()=>onChange(defaultButton(design.family))}><RotateCcw/></Button></div>
+      <div className="workshop-section-head"><h2 id="workshop-settings-title">Réglages</h2><div className="workshop-save-actions"><Button variant="ghost" size="icon-sm" aria-label="Enregistrer le bouton dans les favoris" disabled={styles.length>=100} onClick={()=>{setStyleName(design.label.trim() || 'Mon bouton');setSaveOpen(true)}}><Save/></Button><Button variant="ghost" size="icon-sm" aria-label="Réinitialiser le bouton" onClick={()=>onChange(defaultButton(design.family))}><RotateCcw/></Button></div></div>
+      <Dialog open={saveOpen} onOpenChange={setSaveOpen}><DialogContent><DialogHeader><DialogTitle>Enregistrer dans Favoris</DialogTitle><DialogDescription>Retrouvez ce bouton et ses réglages dans la section « Boutons enregistrés » des Favoris.</DialogDescription></DialogHeader><form className="save-style-form" onSubmit={event=>{event.preventDefault();if(!styleName.trim())return;onSave(styleName.trim(),design);setSaveOpen(false)}}><Field><FieldLabel htmlFor="style-name">Nom du bouton</FieldLabel><input id="style-name" type="text" maxLength={80} required value={styleName} onChange={event=>setStyleName(event.target.value)}/></Field><Button type="submit" disabled={!styleName.trim()}>Enregistrer le bouton</Button></form></DialogContent></Dialog>
       <Field><FieldLabel htmlFor="button-family">Forme de départ</FieldLabel><select id="button-family" value={design.family} onChange={event=>{const preset=defaultButton(event.target.value);update({family:preset.family,radius:preset.radius})}}>{shapes.map(shape=><option key={shape.id} value={shape.id}>{shape.name}</option>)}</select></Field>
       <Field><FieldLabel htmlFor="button-label">Texte du bouton</FieldLabel><input id="button-label" type="text" maxLength={120} value={design.label} onChange={event=>update({label:event.target.value})}/></Field>
       <div className="workshop-parameters">{numeric('fontSize','Taille du texte',8,48)}{numeric('fontWeight','Graisse',300,900,50,'')}{numeric('paddingX','Padding horizontal',0,64)}{numeric('paddingY','Padding vertical',0,48)}{numeric('radius','Arrondi',0,96)}{numeric('borderWidth','Bordure',0,8)}</div>

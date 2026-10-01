@@ -1,8 +1,335 @@
 [
-  {"id":"square","name":"Carré","description":"Une structure franche, des repères nets.","tags":["Structure","Précision"],"variants":["Angle droit","Rectangle","Grille modulaire"],"effect":"Les contours angulaires peuvent favoriser des associations de dureté. La précision et la stabilité restent des hypothèses de design à tester.","favorable":["Information dense","Identité structurée","Composition modulaire"],"avoid":["Une identité recherchée comme très douce","Des angles saillants sur de petites cibles"],"attention":"L'absence de rayon facilite les imbrications, mais ne garantit ni lisibilité ni accessibilité.","sourceIds":["logo","contour"],"evidence":"Tendance étudiée pour l'angularité","examples":[{"name":"Swiss Style · compositions modulaires","url":"https://www.moma.org/collection/works/6773"}],"tones":["rigoureux"],"sectors":["finance","culture"],"audiences":["expert"],"radius":0,"outer":0,"padding":16},
-  {"id":"soft","name":"Arrondi léger","description":"Un équilibre entre rigueur et douceur.","tags":["Équilibre","Accueil"],"variants":["Rayon 4 px","Rayon 8 px","Rayon 12 px"],"effect":"Les recherches suggèrent une préférence moyenne pour les contours courbes. Un léger arrondi est ici une transposition de design, sans rayon optimal établi.","favorable":["Services du quotidien","Interfaces polyvalentes","Identités accueillantes"],"avoid":["Chercher à exprimer une rupture radicale","Multiplier les rayons sans logique"],"attention":"Pour des contours concentriques : rayon intérieur = max(0, rayon extérieur − espacement).","sourceIds":["contour","logo"],"evidence":"Transposition de recherches sur la courbure","examples":[{"name":"Material Design · échelle de formes","url":"https://m3.material.io/styles/shape/overview"}],"tones":["accessible","rigoureux"],"sectors":["sante","technologie","finance"],"audiences":["general","senior"],"radius":8,"outer":24,"padding":16},
-  {"id":"pill","name":"Pilule","description":"Des contours continus, un geste fluide.","tags":["Douceur","Continuité"],"variants":["Bouton capsule","Étiquette","Champ allongé"],"effect":"La continuité du contour s'inscrit dans les recherches sur la courbure. L'association à la convivialité est une hypothèse, pas une preuve spécifique à la pilule.","favorable":["Actions simples","Services accueillants","Étiquettes courtes"],"avoid":["Cartes très denses","Texte long dans un espace étroit"],"attention":"Un rayon de demi-hauteur suffit à produire une capsule. Conserver assez de place autour du libellé.","sourceIds":["contour"],"evidence":"Hypothèse de design à valider","examples":[{"name":"Material Design · boutons","url":"https://m3.material.io/components/buttons/overview"}],"tones":["accessible","expressif"],"sectors":["sante","education"],"audiences":["general","jeune"],"radius":22,"outer":32,"padding":10},
-  {"id":"circle","name":"Cercle","description":"Une forme compacte, sans orientation.","tags":["Unité","Douceur"],"variants":["Disque","Anneau","Médaillon"],"effect":"Les logos circulaires ont suscité des associations de douceur dans certaines expériences. Cela ne démontre pas une supériorité pour toute interface.","favorable":["Signes de marque","Avatars","Actions iconographiques"],"avoid":["Libellés longs","Contenus rectangulaires denses"],"attention":"Réserver le cercle aux éléments de ratio 1:1. Un bouton textuel allongé devient une pilule.","sourceIds":["logo","contour"],"evidence":"Tendance étudiée pour les logos","examples":[{"name":"Mastercard · identité circulaire","url":"https://www.mastercard.com/brandcenter/en/home.html"}],"tones":["accessible"],"sectors":["education","sante"],"audiences":["jeune","general"],"radius":22,"outer":32,"padding":10},
-  {"id":"triangle","name":"Triangle","description":"Une direction lisible, un rythme marqué.","tags":["Direction","Tension"],"variants":["Équilatéral","Flèche","Chevron"],"effect":"Les études sur l'angularité constituent un cadre de réflexion. L'idée de mouvement liée au triangle est une hypothèse de composition, non un effet démontré par ces sources.","favorable":["Signes directionnels","Motifs graphiques","Identités expressives"],"avoid":["Champs de saisie","Conteneurs de texte","Cibles aux pointes étroites"],"attention":"Utiliser le triangle comme signe ou motif. Garder une zone interactive rectangulaire suffisamment grande.","sourceIds":["logo","contour"],"evidence":"Hypothèse de design à valider","examples":[{"name":"YouTube · signe de lecture","url":"https://www.youtube.com/howyoutubeworks/resources/brand-resources/"}],"tones":["expressif"],"sectors":["culture","technologie"],"audiences":["jeune","expert"],"radius":0,"outer":0,"padding":16},
-  {"id":"organic","name":"Organique","description":"Une silhouette libre, une présence singulière.","tags":["Souplesse","Expression"],"variants":["Galet","Contour asymétrique","Blob"],"effect":"Les contours courbes offrent un point de départ théorique. Les associations à la nature ou à la créativité restent des hypothèses propres au projet.","favorable":["Motifs d'identité","Culture et création","Accents illustratifs"],"avoid":["Grilles denses","Imbrications répétées","Cibles difficiles à délimiter"],"attention":"Les contours asymétriques ne suivent pas un rayon unique. Préserver des composants fonctionnels réguliers.","sourceIds":["contour"],"evidence":"Hypothèse de design à valider","examples":[{"name":"Arp · formes biomorphiques","url":"https://www.tate.org.uk/art/art-terms/b/biomorphic"}],"tones":["expressif","accessible"],"sectors":["culture","education"],"audiences":["jeune","general"],"radius":16,"outer":32,"padding":16}
+  {
+    "id": "square",
+    "name": "Carré",
+    "description": "Une structure franche, des repères nets.",
+    "tags": [
+      "Structure",
+      "Précision"
+    ],
+    "variants": [
+      "Angle droit",
+      "Rectangle",
+      "Grille modulaire"
+    ],
+    "effect": "Les contours angulaires peuvent favoriser des associations de dureté. La précision et la stabilité restent des hypothèses de design à tester.",
+    "favorable": [
+      "Information dense",
+      "Identité structurée",
+      "Composition modulaire"
+    ],
+    "avoid": [
+      "Une identité recherchée comme très douce",
+      "Des angles saillants sur de petites cibles"
+    ],
+    "attention": "L'absence de rayon facilite les imbrications, mais ne garantit ni lisibilité ni accessibilité.",
+    "sourceIds": [
+      "logo",
+      "contour"
+    ],
+    "evidence": "Tendance étudiée pour l'angularité",
+    "examples": [
+      {
+        "name": "Swiss Style · compositions modulaires",
+        "url": "https://www.moma.org/collection/works/6773"
+      }
+    ],
+    "tones": [
+      "rigoureux"
+    ],
+    "sectors": [
+      "finance",
+      "culture"
+    ],
+    "audiences": [
+      "expert"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Rigueur",
+      "Stabilité",
+      "Fermeté"
+    ]
+  },
+  {
+    "id": "soft",
+    "name": "Arrondi léger",
+    "description": "Un équilibre entre rigueur et douceur.",
+    "tags": [
+      "Équilibre",
+      "Accueil"
+    ],
+    "variants": [
+      "Rayon 4 px",
+      "Rayon 8 px",
+      "Rayon 12 px"
+    ],
+    "effect": "Les recherches suggèrent une préférence moyenne pour les contours courbes. Un léger arrondi est ici une transposition de design, sans rayon optimal établi.",
+    "favorable": [
+      "Services du quotidien",
+      "Interfaces polyvalentes",
+      "Identités accueillantes"
+    ],
+    "avoid": [
+      "Chercher à exprimer une rupture radicale",
+      "Multiplier les rayons sans logique"
+    ],
+    "attention": "Pour des contours concentriques : rayon intérieur = max(0, rayon extérieur − espacement).",
+    "sourceIds": [
+      "contour",
+      "logo"
+    ],
+    "evidence": "Transposition de recherches sur la courbure",
+    "examples": [
+      {
+        "name": "Material Design · échelle de formes",
+        "url": "https://m3.material.io/styles/shape/overview"
+      }
+    ],
+    "tones": [
+      "accessible",
+      "rigoureux"
+    ],
+    "sectors": [
+      "sante",
+      "technologie",
+      "finance"
+    ],
+    "audiences": [
+      "general",
+      "senior"
+    ],
+    "radius": 8,
+    "outer": 24,
+    "padding": 16,
+    "associations": [
+      "Accueil",
+      "Douceur",
+      "Calme"
+    ]
+  },
+  {
+    "id": "pill",
+    "name": "Pilule",
+    "description": "Des contours continus, un geste fluide.",
+    "tags": [
+      "Douceur",
+      "Continuité"
+    ],
+    "variants": [
+      "Bouton capsule",
+      "Étiquette",
+      "Champ allongé"
+    ],
+    "effect": "La continuité du contour s'inscrit dans les recherches sur la courbure. L'association à la convivialité est une hypothèse, pas une preuve spécifique à la pilule.",
+    "favorable": [
+      "Actions simples",
+      "Services accueillants",
+      "Étiquettes courtes"
+    ],
+    "avoid": [
+      "Cartes très denses",
+      "Texte long dans un espace étroit"
+    ],
+    "attention": "Un rayon de demi-hauteur suffit à produire une capsule. Conserver assez de place autour du libellé.",
+    "sourceIds": [
+      "contour"
+    ],
+    "evidence": "Hypothèse de design à valider",
+    "examples": [
+      {
+        "name": "Material Design · boutons",
+        "url": "https://m3.material.io/components/buttons/overview"
+      }
+    ],
+    "tones": [
+      "accessible",
+      "expressif"
+    ],
+    "sectors": [
+      "sante",
+      "education"
+    ],
+    "audiences": [
+      "general",
+      "jeune"
+    ],
+    "radius": 22,
+    "outer": 32,
+    "padding": 10,
+    "associations": [
+      "Douceur",
+      "Fluidité",
+      "Convivialité"
+    ]
+  },
+  {
+    "id": "circle",
+    "name": "Cercle",
+    "description": "Une forme compacte, sans orientation.",
+    "tags": [
+      "Unité",
+      "Douceur"
+    ],
+    "variants": [
+      "Disque",
+      "Anneau",
+      "Médaillon"
+    ],
+    "effect": "Les logos circulaires ont suscité des associations de douceur dans certaines expériences. Cela ne démontre pas une supériorité pour toute interface.",
+    "favorable": [
+      "Signes de marque",
+      "Avatars",
+      "Actions iconographiques"
+    ],
+    "avoid": [
+      "Libellés longs",
+      "Contenus rectangulaires denses"
+    ],
+    "attention": "Réserver le cercle aux éléments de ratio 1:1. Un bouton textuel allongé devient une pilule.",
+    "sourceIds": [
+      "logo",
+      "contour"
+    ],
+    "evidence": "Tendance étudiée pour les logos",
+    "examples": [
+      {
+        "name": "Mastercard · identité circulaire",
+        "url": "https://www.mastercard.com/brandcenter/en/home.html"
+      }
+    ],
+    "tones": [
+      "accessible"
+    ],
+    "sectors": [
+      "education",
+      "sante"
+    ],
+    "audiences": [
+      "jeune",
+      "general"
+    ],
+    "radius": 22,
+    "outer": 32,
+    "padding": 10,
+    "associations": [
+      "Unité",
+      "Douceur",
+      "Proximité"
+    ]
+  },
+  {
+    "id": "triangle",
+    "name": "Triangle",
+    "description": "Une direction lisible, un rythme marqué.",
+    "tags": [
+      "Direction",
+      "Tension"
+    ],
+    "variants": [
+      "Équilatéral",
+      "Flèche",
+      "Chevron"
+    ],
+    "effect": "Les études sur l'angularité constituent un cadre de réflexion. L'idée de mouvement liée au triangle est une hypothèse de composition, non un effet démontré par ces sources.",
+    "favorable": [
+      "Signes directionnels",
+      "Motifs graphiques",
+      "Identités expressives"
+    ],
+    "avoid": [
+      "Champs de saisie",
+      "Conteneurs de texte",
+      "Cibles aux pointes étroites"
+    ],
+    "attention": "Utiliser le triangle comme signe ou motif. Garder une zone interactive rectangulaire suffisamment grande.",
+    "sourceIds": [
+      "logo",
+      "contour"
+    ],
+    "evidence": "Hypothèse de design à valider",
+    "examples": [
+      {
+        "name": "YouTube · signe de lecture",
+        "url": "https://www.youtube.com/howyoutubeworks/resources/brand-resources/"
+      }
+    ],
+    "tones": [
+      "expressif"
+    ],
+    "sectors": [
+      "culture",
+      "technologie"
+    ],
+    "audiences": [
+      "jeune",
+      "expert"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Énergie",
+      "Tension",
+      "Direction"
+    ]
+  },
+  {
+    "id": "organic",
+    "name": "Organique",
+    "description": "Une silhouette libre, une présence singulière.",
+    "tags": [
+      "Souplesse",
+      "Expression"
+    ],
+    "variants": [
+      "Galet",
+      "Contour asymétrique",
+      "Blob"
+    ],
+    "effect": "Les contours courbes offrent un point de départ théorique. Les associations à la nature ou à la créativité restent des hypothèses propres au projet.",
+    "favorable": [
+      "Motifs d'identité",
+      "Culture et création",
+      "Accents illustratifs"
+    ],
+    "avoid": [
+      "Grilles denses",
+      "Imbrications répétées",
+      "Cibles difficiles à délimiter"
+    ],
+    "attention": "Les contours asymétriques ne suivent pas un rayon unique. Préserver des composants fonctionnels réguliers.",
+    "sourceIds": [
+      "contour"
+    ],
+    "evidence": "Hypothèse de design à valider",
+    "examples": [
+      {
+        "name": "Arp · formes biomorphiques",
+        "url": "https://www.tate.org.uk/art/art-terms/b/biomorphic"
+      }
+    ],
+    "tones": [
+      "expressif",
+      "accessible"
+    ],
+    "sectors": [
+      "culture",
+      "education"
+    ],
+    "audiences": [
+      "jeune",
+      "general"
+    ],
+    "radius": 16,
+    "outer": 32,
+    "padding": 16,
+    "associations": [
+      "Spontanéité",
+      "Liberté",
+      "Naturel"
+    ]
+  }
 ]

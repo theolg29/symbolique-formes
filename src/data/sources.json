@@ -38,5 +38,13 @@
     "year": 2023,
     "url": "https://accessibilite.numerique.gouv.fr/methode/criteres-et-tests/",
     "summary": "Dernière version publiée, vérifiée le 30 septembre 2026. Le référentiel français comprend 106 critères. L’outil examine des contrastes et invite à vérifier manuellement le clavier, le focus et les étiquettes. La version 5 est annoncée pour fin 2026."
+  },
+  {
+    "id": "orange",
+    "title": "Orange · Recommandations et outils d’accessibilité",
+    "authors": "Centre d’Expertise en Accessibilité Numérique Orange",
+    "year": "s.d.",
+    "url": "https://a11y-guidelines.orange.com/fr/",
+    "summary": "Des recommandations pratiques pour concevoir, développer et tester des interfaces accessibles. La rubrique Web propose des méthodes de test, une boîte à outils et la Va11ydette pour accompagner les audits."
   }
 ]
