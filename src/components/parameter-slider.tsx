@@ -15,6 +15,7 @@ export function ParameterSlider({id,label,value,min,max,step=1,unit='px',onChang
     <div className="parameter-track">
       <span className="parameter-fill" aria-hidden="true"/>
       <span className="parameter-ticks" aria-hidden="true"/>
+      <span className="parameter-thumb" aria-hidden="true"/>
       <label htmlFor={id} className="parameter-label">{label}</label>
       <input id={id} type="range" min={min} max={max} step={step} value={value} onChange={event=>onChange(Number(event.target.value))}/>
     </div>

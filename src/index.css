@@ -809,13 +809,14 @@ select,input:not([type="range"]):not([type="color"]) { border-radius:10px; }
 
 .workshop-parameters { display:flex; flex-direction:column; gap:8px; }
 .parameter-slider { display:flex; align-items:center; height:44px; min-width:0; border-radius:11px; background:#f5f5f6; border:1px solid #ededee; }
-.parameter-track { position:relative; height:100%; flex:1; min-width:0; }
-.parameter-fill { position:absolute; left:2px; top:2px; bottom:2px; width:var(--parameter-progress); max-width:calc(100% - 4px); border-radius:8px; background:#e6e6e8; pointer-events:none; }
+.parameter-track { position:relative; height:100%; flex:1; min-width:0; cursor:ew-resize; }
+.parameter-thumb { position:absolute; z-index:1; top:50%; left:clamp(2px,var(--parameter-progress),calc(100% - 2px)); transform:translate(-50%,-50%); width:4px; height:22px; border-radius:3px; background:#a1a1aa; pointer-events:none; transition:left 80ms ease-out; }
+.parameter-fill { position:absolute; left:2px; top:2px; bottom:2px; width:var(--parameter-progress); max-width:calc(100% - 4px); border-radius:8px; background:#e6e6e8; pointer-events:none; transition:width 80ms ease-out; }
 .parameter-ticks { position:absolute; left:16px; right:12px; top:17px; height:8px; background:repeating-linear-gradient(to right,#d2d2d6 0 1px,transparent 1px 24px); pointer-events:none; }
 .parameter-label { position:relative; z-index:3; display:flex; align-items:center; height:100%; padding:0 12px; font-size:12px; font-weight:500; color:#52525b; pointer-events:none; }
-.parameter-track input[type="range"] { position:absolute; inset:0; width:100%; height:100%; margin:0; background:transparent; border-radius:9px; z-index:2; }
-.parameter-track input[type="range"]::-webkit-slider-thumb { width:4px; height:22px; border:0; border-radius:3px; background:#a1a1aa; box-shadow:none; }
-.parameter-track input[type="range"]::-moz-range-thumb { width:4px; height:22px; border:0; border-radius:3px; background:#a1a1aa; box-shadow:none; }
+.parameter-track input[type="range"] { position:absolute; inset:0; width:100%; height:100%; margin:0; background:transparent; border-radius:9px; z-index:2; cursor:ew-resize; }
+.parameter-track input[type="range"]::-webkit-slider-thumb { width:4px; height:22px; border:0; border-radius:3px; background:transparent; box-shadow:none; cursor:ew-resize; }
+.parameter-track input[type="range"]::-moz-range-thumb { width:4px; height:22px; border:0; border-radius:3px; background:transparent; box-shadow:none; cursor:ew-resize; }
 .parameter-track input[type="range"]::-moz-range-track { background:transparent; }
 .parameter-value { display:flex; align-items:center; justify-content:flex-end; gap:2px; width:72px; flex-shrink:0; padding:0 10px 0 4px; }
 .workshop-settings .parameter-value input[type="text"] { width:36px; height:30px; border:0; border-radius:5px; padding:0 2px; background:transparent; color:var(--foreground); font-size:13px; font-weight:650; text-align:right; font-variant-numeric:tabular-nums; }
