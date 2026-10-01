@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { audit, auditButton, defaultButton, contrastRatio, defaultProject, parseProject, preset, rankShapes, shapes, sources } from './model'
+import { audit, auditButton, buttonQuality, buttonStates, buttonAppearance, exportButtonCode, defaultButton, contrastRatio, defaultProject, parseProject, preset, rankShapes, shapes, sources } from './model'
 describe('Recommandations',()=>{
   it('adapte la première piste au contexte sans retirer de familles',()=>{
     expect(rankShapes({usage:'button',sector:'sante',tone:'accessible',audience:'general'})[0].shape.id).toBe('soft')
@@ -92,5 +92,69 @@ describe('Usage et styles sauvegardés',()=>{
   const legacy={...project,context:{sector:'sante',tone:'accessible',audience:'general'}}
   expect(parseProject(legacy).context.usage).toBe('button')
   expect(()=>parseProject({...project,buttonStyles:[{id:'one',name:'',design:project.button}]})).toThrow('Styles de bouton invalides')
+ })
+})
+
+describe('États et export de bouton',()=>{
+ it('conserve les anciens boutons et valide les couleurs de chaque état',()=>{
+  const legacy=defaultProject()
+  expect(parseProject(legacy).button.states).toBeUndefined()
+  const states=buttonStates(legacy.button)
+  expect(states.hover.background).not.toBe(legacy.button.background)
+  expect(buttonAppearance({...legacy.button,states},'disabled').background).toBe('#e4e4e7')
+  expect(()=>parseProject({...legacy,button:{...legacy.button,states:{...states,focusRing:'bad'}}})).toThrow('Bouton invalide')
+  expect(()=>parseProject({...legacy,buttonStyles:[{id:'one',name:'Test',design:{...legacy.button,states:{...states,hover:{...states.hover,background:'red'}}}}]})).toThrow('Styles de bouton invalides')
+  const saved=parseProject({...legacy,button:{...legacy.button,states}})
+  expect(saved.button.states).toEqual(states)
+  expect(saved.button.states).not.toBe(states)
+ })
+ it('exporte les réglages et états et échappe le libellé HTML',()=>{
+  const button={...defaultButton(),label:'<script>alert("test")</script> & Continuer',paddingX:32}
+  const code=exportButtonCode({...button,states:{...buttonStates(button),hover:{foreground:'#000000',background:'#ffffff',borderColor:'#000000'}}})
+  expect(code).toContain('padding: 14px 32px')
+  expect(code).toContain(':hover:not(:disabled) { color: #000000; background: #ffffff;')
+  expect(code).toContain(':focus-visible')
+  expect(code).toContain(':disabled')
+  expect(code).toContain('prefers-reduced-motion')
+  expect(code).toContain('&lt;script&gt;')
+  expect(code).not.toContain('<script>')
+ })
+})
+
+
+describe('Score de qualité du bouton',()=>{
+ const metrics={width:120,height:48,radius:8}
+ it('atteint 100 uniquement lorsque tous les repères pondérés sont atteints',()=>{
+  const result=buttonQuality({...defaultButton(),fontSize:16},metrics)
+  expect(result.value).toBe(100)
+  expect(result.groups.reduce((sum,group)=>sum+group.max,0)).toBe(100)
+  expect(result.priorities).toEqual([])
+  const small=buttonQuality(defaultButton(),{width:20,height:20,radius:8})
+  expect(small.value).toBe(49)
+  expect(small.priorities).toContain('Augmentez le padding pour atteindre une cible de 24 × 24 px, ou vérifiez les exceptions en contexte.')
+ })
+ it('vérifie tous les états actifs et exclut les couleurs désactivées',()=>{
+  const button={...defaultButton(),fontSize:16},states=buttonStates(button)
+  const badHover={...button,states:{...states,hover:{...states.hover,foreground:states.hover.background}}}
+  expect(buttonQuality(badHover,metrics).value).toBe(59)
+  expect(buttonQuality(badHover,metrics).priorities.join(' ')).toContain('survol')
+  expect(buttonQuality({...button,states:{...states,disabled:{foreground:'#ffffff',background:'#ffffff',borderColor:'#ffffff'}}},metrics).value).toBe(100)
+  expect(buttonQuality({...button,label:'  '},metrics).value).toBe(20)
+  expect(buttonQuality({...button,states:{...states,focusRing:'#ffffff'}},metrics).value).toBe(79)
+ })
+})
+
+describe('Lisibilité et plafonds du score',()=>{
+ const metrics={width:200,height:60,radius:8}
+ it.each([[8,25],[10,45],[12,65],[14,90],[16,100]])('pénalise un texte à %i px malgré une grande cible et un bon contraste',(fontSize,expected)=>{
+  const result=buttonQuality({...defaultButton(),fontSize},metrics)
+  expect(result.value).toBe(expected)
+  if(fontSize<16){expect(result.limits.length).toBeGreaterThan(0);expect(result.priorities.join(' ')).toContain('taille du texte')}
+ })
+ it('empêche la graisse et le padding de compenser un texte trop petit',()=>{
+  expect(buttonQuality({...defaultButton(),fontSize:8,fontWeight:900,paddingX:64,paddingY:48},metrics).value).toBe(25)
+  const thin=buttonQuality({...defaultButton(),fontSize:16,fontWeight:300},metrics)
+  expect(thin.value).toBe(70)
+  expect(thin.limits[0].reason).toContain('Texte très fin')
  })
 })

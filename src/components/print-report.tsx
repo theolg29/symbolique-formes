@@ -1,4 +1,4 @@
-import { audit, auditButton, usageOptions, shapes, sources, type ButtonMetrics, type Project } from '@/lib/model'
+import { audit, auditButton, buttonQuality, buttonAppearance, buttonStates, contrastRatio, usageOptions, shapes, sources, type ButtonMetrics, type Project } from '@/lib/model'
 import { ShapeGlyph } from './shape-glyph'
 
 export function PrintReport({project,chosen,buttonMetrics}:{project:Project;chosen:number|null;buttonMetrics:ButtonMetrics|null}) {
@@ -32,12 +32,14 @@ export function PrintReport({project,chosen,buttonMetrics}:{project:Project;chos
     </div>
     <div className="print-page">
       <h2>Bouton personnalisé</h2>
+      {buttonMetrics && <p>Score de qualité : {buttonQuality(button,buttonMetrics).value}/100. Pondération propre à Forme sur les repères mesurables ; ce score ne mesure pas la conversion ni une conformité complète.</p>}
       <p>Forme de départ : {shapes.find(shape=>shape.id===button.family)?.name}</p>
       <div className="report-button-canvas" style={{background:button.canvas,padding:24,textAlign:'center',border:'1px solid #e8e8eb',borderRadius:12}}><span style={{display:'inline-block',fontSize:button.fontSize,fontWeight:button.fontWeight,lineHeight:1.4,padding:`${button.paddingY}px ${button.paddingX}px`,borderRadius:button.radius,border:`${button.borderWidth}px solid ${button.borderColor}`,background:button.background,color:button.foreground}}>{button.label || 'Sans libellé'}</span></div>
       <p>Texte : {button.fontSize} px · graisse {button.fontWeight}. Padding : {button.paddingX} px horizontal / {button.paddingY} px vertical. Arrondi : {button.radius} px. Bordure : {button.borderWidth} px.</p>
       <p>Texte {button.foreground} · fond {button.background} · bordure {button.borderColor} · aperçu {button.canvas}.</p>
       <ul className="report-checks"><li data-status={buttonResult.contrast ? 'success':'warning'}>Contraste du texte : {buttonResult.ratio.toFixed(2)}:1 / minimum {buttonResult.threshold}:1.</li><li data-status={buttonResult.boundary ? 'success':'warning'}>Repérage du bouton : {buttonResult.boundaryRatio.toFixed(2)}:1 / repère 3:1.</li><li data-status={buttonResult.label ? 'success':'warning'}>Présence du libellé : {buttonResult.label ? 'vérifiée':'à compléter'}.</li>{buttonMetrics && <><li>Dimensions mesurées à l’écran : {buttonMetrics.width.toFixed(1)} × {buttonMetrics.height.toFixed(1)} px.</li><li data-status={buttonResult.target ? 'success':'warning'}>Repère 24 × 24 px : {buttonResult.target ? 'atteint':'à agrandir ou vérifier les exceptions'}.</li><li data-status={buttonResult.comfortable ? 'success':'warning'}>Repère renforcé 44 × 44 px : {buttonResult.comfortable ? 'atteint':'à agrandir'}.</li></>}<li data-status="manual">Clavier, focus, états, sens de l’action et texte agrandi : à vérifier en contexte.</li></ul>
       {!buttonMetrics && <p>Ouvrez l’atelier pour mesurer les dimensions du bouton à l’écran.</p>}
+      <p>Contraste du texte par état : {([['rest','repos'],['hover','survol'],['focus','focus'],['disabled','désactivé (informatif)']] as const).map(([state,label])=>{const appearance=buttonAppearance(button,state);return `${label} ${contrastRatio(appearance.foreground,appearance.background).toFixed(2)}:1`}).join(' · ')}. Contour de focus : {buttonStates(button).focusRing}, {contrastRatio(buttonStates(button).focusRing,button.canvas).toFixed(2)}:1 sur le fond de l’aperçu.</p>
       <p className="report-note">Contrôles partiels au repos. Les dimensions WCAG 2.2 sont complémentaires au RGAA 4.1.2.</p>
     </div>
     <div className="print-page">

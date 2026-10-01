@@ -7,7 +7,10 @@ export const sources = sourcesData
 export type Shape = typeof shapes[number]
 export type Context = { sector: string; tone: string; audience: string; usage:string }
 export type ShapeSystem = { family: string; radius: number; outer: number; padding: number; height: number; foreground: string; background: string }
-export type ButtonDesign = { family:string; label:string; fontSize:number; fontWeight:number; paddingX:number; paddingY:number; radius:number; foreground:string; background:string; canvas:string; borderColor:string; borderWidth:number }
+export type ButtonState = 'rest' | 'hover' | 'focus' | 'disabled'
+export type ButtonColors = {foreground:string;background:string;borderColor:string}
+export type ButtonStates = {hover:ButtonColors;focus:ButtonColors;disabled:ButtonColors;focusRing:string}
+export type ButtonDesign = { states?:ButtonStates; family:string; label:string; fontSize:number; fontWeight:number; paddingX:number; paddingY:number; radius:number; foreground:string; background:string; canvas:string; borderColor:string; borderWidth:number }
 export type ButtonStyle = {id:string;name:string;design:ButtonDesign}
 export type ButtonMetrics = { width:number; height:number; radius:number }
 export type Project = { buttonStyles:ButtonStyle[]; button:ButtonDesign; version: 1; name: string; context: Context; systems: [ShapeSystem, ShapeSystem]; favorites: string[]; comparison: string[] }
@@ -100,14 +103,91 @@ export function parseProject(value: unknown): Project {
   const button=p.button ?? defaultButton(p.systems[0].family)
   const color=(v:unknown)=>typeof v==='string' && /^#[0-9a-f]{6}$/i.test(v)
   const validButton=(button:ButtonDesign)=>!!button && shapes.some(shape=>shape.id===button.family) && typeof button.label==='string' && button.label.length<=120 && validNumber(button.fontSize,8,48) && validNumber(button.fontWeight,300,900) && validNumber(button.paddingX,0,64) && validNumber(button.paddingY,0,48) && validNumber(button.radius,0,96) && validNumber(button.borderWidth,0,8) && [button.foreground,button.background,button.canvas,button.borderColor].every(color)
-  if(!validButton(button)) throw new Error('Bouton invalide : vérifiez le texte, les dimensions et les couleurs.')
+  const validStates=(button:ButtonDesign)=>button.states===undefined || (!!button.states && color(button.states.focusRing) && ['hover','focus','disabled'].every(key=>{const state=button.states?.[key as 'hover'|'focus'|'disabled'];return state && [state.foreground,state.background,state.borderColor].every(color)}))
+  if(!validButton(button) || !validStates(button)) throw new Error('Bouton invalide : vérifiez le texte, les dimensions et les couleurs.')
   const buttonStyles=p.buttonStyles ?? []
-  if(!Array.isArray(buttonStyles) || buttonStyles.length>100 || !buttonStyles.every(style=>style && typeof style.id==='string' && style.id.length>0 && style.id.length<=100 && typeof style.name==='string' && style.name.trim().length>0 && style.name.length<=80 && validButton(style.design)) || new Set(buttonStyles.map(style=>style.id)).size!==buttonStyles.length) throw new Error('Styles de bouton invalides.')
-  return { buttonStyles:buttonStyles.map(style=>({id:style.id,name:style.name,design:{...style.design}})), button:{...button}, version: 1, comparison, name: p.name, context: { ...p.context,usage }, systems: p.systems.map(s => ({ ...s })) as Project['systems'], favorites: [...new Set(p.favorites)] }
+  if(!Array.isArray(buttonStyles) || buttonStyles.length>100 || !buttonStyles.every(style=>style && typeof style.id==='string' && style.id.length>0 && style.id.length<=100 && typeof style.name==='string' && style.name.trim().length>0 && style.name.length<=80 && validButton(style.design) && validStates(style.design)) || new Set(buttonStyles.map(style=>style.id)).size!==buttonStyles.length) throw new Error('Styles de bouton invalides.')
+  return { buttonStyles:buttonStyles.map(style=>({id:style.id,name:style.name,design:structuredClone(style.design)})), button:structuredClone(button), version: 1, comparison, name: p.name, context: { ...p.context,usage }, systems: p.systems.map(s => ({ ...s })) as Project['systems'], favorites: [...new Set(p.favorites)] }
 }
 export function loadProject(): Project {
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
     return stored ? parseProject(JSON.parse(stored)) : defaultProject()
   } catch { return defaultProject() }
+}
+
+export function buttonStates(button:ButtonDesign):ButtonStates {
+  const colors={foreground:button.foreground,background:button.background,borderColor:button.borderColor}
+  const rgb=colord(button.background).toRgb()
+  const amount=contrastRatio('#ffffff',button.background)>contrastRatio('#000000',button.background) ? 36 : -36
+  const hoverBackground='#'+[rgb.r,rgb.g,rgb.b].map(channel=>Math.max(0,Math.min(255,channel+amount)).toString(16).padStart(2,'0')).join('')
+  return button.states ?? {hover:{...colors,background:hoverBackground},focus:{...colors},disabled:{foreground:'#71717a',background:'#e4e4e7',borderColor:'#e4e4e7'},focusRing:'#2563eb'}
+}
+export function buttonAppearance(button:ButtonDesign,state:ButtonState):ButtonDesign {
+  return state==='rest' ? button : {...button,...buttonStates(button)[state]}
+}
+const escapeHtml=(value:string)=>value.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]!))
+export function exportButtonCode(button:ButtonDesign) {
+  const states=buttonStates(button)
+  const colors=(value:ButtonColors)=>`color: ${value.foreground}; background: ${value.background}; border-color: ${value.borderColor};`
+  return `<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@1&display=swap">
+<style>
+.forme-button {
+  box-sizing: border-box; max-width: 100%; font-family: 'Satoshi', sans-serif;
+  font-size: ${button.fontSize}px; font-weight: ${button.fontWeight}; line-height: 1.4;
+  padding: ${button.paddingY}px ${button.paddingX}px; border-radius: ${button.radius}px;
+  border: ${button.borderWidth}px solid ${button.borderColor};
+  ${colors(button)}
+  white-space: normal; overflow-wrap: anywhere; cursor: pointer; text-align: center;
+  transition: background-color 160ms, color 160ms, border-color 160ms;
+}
+.forme-button:hover:not(:disabled) { ${colors(states.hover)} }
+.forme-button:focus-visible { ${colors(states.focus)} outline: 3px solid ${states.focusRing}; outline-offset: 4px; }
+.forme-button:disabled { ${colors(states.disabled)} cursor: not-allowed; }
+@media (prefers-reduced-motion: reduce) { .forme-button { transition: none; } }
+</style>
+<button class="forme-button" type="button">${escapeHtml(button.label)}</button>`
+}
+
+/** Editorial score of measurable properties, never a conversion or compliance rating. */
+export function buttonQuality(button:ButtonDesign,metrics:ButtonMetrics) {
+  const labels={rest:'repos',hover:'survol',focus:'focus'}
+  const audits=(['rest','hover','focus'] as const).map(state=>({state,...auditButton(buttonAppearance(button,state),metrics)}))
+  const rest=audits[0]
+  const focus=contrastRatio(buttonStates(button).focusRing,button.canvas)>=3
+  const typeSize=button.fontSize>=16?15:button.fontSize>=14?12:button.fontSize>=12?7:button.fontSize>=10?3:0
+  const typeWeight=button.fontWeight>=500?5:button.fontWeight>=400?3:0
+  const groups=[
+    {label:'Lisibilité du texte',points:typeSize+typeWeight,max:20,detail:`${button.fontSize} px · graisse ${button.fontWeight}. Repères Forme : 16 px et graisse ≥ 500 pour tous les points. Ce ne sont pas des seuils RGAA.`},
+    {label:'Contraste du texte',points:audits.filter(a=>a.contrast).length*10,max:30,detail:'Repos, survol et focus : 10 points par état.'},
+    {label:'Repérage du bouton',points:audits.filter(a=>a.boundary).length*5,max:15,detail:'Fond ou bordure sur le fond de l’aperçu : 5 points par état.'},
+    {label:'Cible minimale',points:rest.target?15:0,max:15,detail:'Un carré de 24 × 24 px tient dans la cible arrondie.'},
+    {label:'Cible renforcée',points:rest.comfortable?5:0,max:5,detail:'Repère de confort de 44 × 44 px (WCAG AAA).'},
+    {label:'Libellé présent',points:rest.label?5:0,max:5,detail:'Le texte n’est pas vide. La pertinence de l’action reste à vérifier.'},
+    {label:'Contour de focus',points:focus?10:0,max:10,detail:'Contraste d’au moins 3:1 sur le fond de l’aperçu.'},
+  ]
+  const priorities:string[]=[]
+  const limits:{max:number;reason:string}[]=[]
+  if(button.fontSize<16){
+    const max=button.fontSize<10?25:button.fontSize<12?45:button.fontSize<14?65:90
+    limits.push({max,reason:`Texte à ${button.fontSize} px : ${button.fontSize<12?'trop petit':'taille à améliorer'} selon les repères de lisibilité Forme.`})
+    priorities.push('Augmentez la taille du texte : visez 16 px pour un bouton courant, puis validez en contexte.')
+  }
+  if(button.fontWeight<400){limits.push({max:70,reason:'Texte très fin : graisse inférieure à 400.'});priorities.push('Augmentez la graisse du texte pour rendre les lettres plus présentes.')}
+  else if(button.fontWeight<500)priorities.push('Une graisse de 500 ou plus peut améliorer la présence du libellé ; vérifiez le rendu à l’écran.')
+  if(audits.some(a=>!a.contrast))limits.push({max:59,reason:'Contraste du texte insuffisant dans au moins un état actif.'})
+  if(!rest.target)limits.push({max:49,reason:'Cible minimale de 24 × 24 px non atteinte, hors exceptions à vérifier.'})
+  if(!rest.label)limits.push({max:20,reason:'Le bouton n’a pas de libellé.'})
+  if(!focus)limits.push({max:79,reason:'Contour de focus insuffisamment contrasté sur le fond choisi.'})
+  for(const audit of audits){
+    if(!audit.contrast)priorities.push(`Augmentez le contraste du texte au ${labels[audit.state]} (minimum ${audit.threshold}:1).`)
+    if(!audit.boundary)priorities.push(`Renforcez le fond ou la bordure au ${labels[audit.state]} sur le fond de l’aperçu.`)
+  }
+  if(!rest.target)priorities.push('Augmentez le padding pour atteindre une cible de 24 × 24 px, ou vérifiez les exceptions en contexte.')
+  else if(!rest.comfortable)priorities.push('Augmentez le padding pour atteindre le repère renforcé de 44 × 44 px.')
+  if(!rest.label)priorities.push('Ajoutez un libellé qui décrit l’action.')
+  if(!focus)priorities.push('Choisissez un contour de focus plus contrasté sur le fond de l’aperçu.')
+  const raw=groups.reduce((sum,group)=>sum+group.points,0)
+  const ceiling=limits.reduce((max,limit)=>Math.min(max,limit.max),100)
+  return {value:Math.min(raw,ceiling),raw,ceiling,limits,groups,priorities}
 }
