@@ -31,3 +31,342 @@ export const evocations:Record<string,{description:string;example:string}[]>={
   {description:'Une forme organique peut rappeler des silhouettes du vivant ; cette association reste contextuelle.',example:'Un motif de feuille abstraite dans une identité liée au paysage.'},
  ],
 }
+
+Object.assign(evocations, {
+  "rectangle": [
+    {
+      "description": "Son allongement peut servir une impression de structure et de continuité.",
+      "example": "Cartes de contenu."
+    },
+    {
+      "description": "« Stabilité » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Bandeaux."
+    },
+    {
+      "description": "« Clarté » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Actions textuelles."
+    }
+  ],
+  "diamond": [
+    {
+      "description": "L’inclinaison peut introduire une tension visuelle dans une composition régulière.",
+      "example": "Motifs répétitifs."
+    },
+    {
+      "description": "« Précision » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Signes graphiques."
+    },
+    {
+      "description": "« Singularité » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Repères de diagramme."
+    }
+  ],
+  "trapezoid": [
+    {
+      "description": "La différence entre les bases peut évoquer une perspective ou une progression.",
+      "example": "Compositions en perspective."
+    },
+    {
+      "description": "« Progression » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs."
+    },
+    {
+      "description": "« Assise » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Identités géométriques."
+    }
+  ],
+  "parallelogram": [
+    {
+      "description": "L’oblique peut soutenir une intention de mouvement ; l’orientation compte.",
+      "example": "Identités dynamiques."
+    },
+    {
+      "description": "« Rythme » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Bandeaux décoratifs."
+    },
+    {
+      "description": "« Tension » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs obliques."
+    }
+  ],
+  "ellipse": [
+    {
+      "description": "La courbure continue peut servir une intention douce, avec une direction donnée par son axe.",
+      "example": "Médaillons."
+    },
+    {
+      "description": "« Amplitude » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs souples."
+    },
+    {
+      "description": "« Douceur » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Identités graphiques."
+    }
+  ],
+  "ring": [
+    {
+      "description": "Le vide central et le contour continu peuvent servir une idée de lien ou de cycle.",
+      "example": "Indicateurs circulaires."
+    },
+    {
+      "description": "« Lien » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Cadres de médaillon."
+    },
+    {
+      "description": "« Ouverture » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs concentriques."
+    }
+  ],
+  "semicircle": [
+    {
+      "description": "L’alliance d’une base droite et d’une courbe peut évoquer un équilibre entre structure et douceur.",
+      "example": "Compositions modulaires."
+    },
+    {
+      "description": "« Équilibre » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs architecturaux."
+    },
+    {
+      "description": "« Émergence » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Identités graphiques."
+    }
+  ],
+  "point": [
+    {
+      "description": "Un point isolé peut attirer l’attention ; répété, il peut donner un rythme.",
+      "example": "Puces."
+    },
+    {
+      "description": "« Rythme » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Séparations discrètes."
+    },
+    {
+      "description": "« Concentration » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs de points."
+    }
+  ],
+  "pentagon": [
+    {
+      "description": "Le nombre de côtés peut donner une identité géométrique distincte, sans signification universelle.",
+      "example": "Emblèmes."
+    },
+    {
+      "description": "« Singularité » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs géométriques."
+    },
+    {
+      "description": "« Protection » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Marqueurs."
+    }
+  ],
+  "hexagon": [
+    {
+      "description": "Son assemblage en pavage peut soutenir une idée de réseau ou d’organisation.",
+      "example": "Pavages."
+    },
+    {
+      "description": "« Organisation » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Identités modulaires."
+    },
+    {
+      "description": "« Cohésion » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Diagrammes de réseau."
+    }
+  ],
+  "octagon": [
+    {
+      "description": "Sa silhouette peut exprimer une présence forte ; les conventions de signalisation modifient sa lecture.",
+      "example": "Signes graphiques."
+    },
+    {
+      "description": "« Protection » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Cadres géométriques."
+    },
+    {
+      "description": "« Vigilance » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs."
+    }
+  ],
+  "line": [
+    {
+      "description": "Une horizontale peut servir une composition calme ; une verticale peut renforcer l’alignement.",
+      "example": "Séparateurs."
+    },
+    {
+      "description": "« Structure » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Axes de composition."
+    },
+    {
+      "description": "« Continuité » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Connexions de diagramme."
+    }
+  ],
+  "diagonal": [
+    {
+      "description": "L’oblique peut orienter le regard et introduire une sensation de mouvement.",
+      "example": "Motifs obliques."
+    },
+    {
+      "description": "« Tension » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Transitions graphiques."
+    },
+    {
+      "description": "« Mouvement » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Compositions dynamiques."
+    }
+  ],
+  "curve": [
+    {
+      "description": "La continuité d’une courbe peut soutenir une impression de fluidité.",
+      "example": "Connexions souples."
+    },
+    {
+      "description": "« Fluidité » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Cadres ouverts."
+    },
+    {
+      "description": "« Lien » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Transitions graphiques."
+    }
+  ],
+  "wave": [
+    {
+      "description": "Une ondulation régulière peut évoquer un rythme ; sa fréquence change l’impression produite.",
+      "example": "Séparateurs décoratifs."
+    },
+    {
+      "description": "« Rythme » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs."
+    },
+    {
+      "description": "« Sérénité » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Identités liées au paysage."
+    }
+  ],
+  "zigzag": [
+    {
+      "description": "Les ruptures successives peuvent soutenir une intention énergique ou discontinue.",
+      "example": "Motifs expressifs."
+    },
+    {
+      "description": "« Rupture » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Séparateurs décoratifs."
+    },
+    {
+      "description": "« Tension » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Compositions contrastées."
+    }
+  ],
+  "spiral": [
+    {
+      "description": "L’enroulement peut évoquer une expansion ou un mouvement vers le centre.",
+      "example": "Motifs centrés."
+    },
+    {
+      "description": "« Curiosité » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Signes graphiques."
+    },
+    {
+      "description": "« Mouvement » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Identités expressives."
+    }
+  ],
+  "arrow": [
+    {
+      "description": "La pointe peut orienter le regard ; le sens exact dépend de son usage.",
+      "example": "Navigation."
+    },
+    {
+      "description": "« Progression » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Diagrammes de parcours."
+    },
+    {
+      "description": "« Décision » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Repères directionnels."
+    }
+  ],
+  "chevron": [
+    {
+      "description": "Un chevron peut servir une intention directionnelle ou un rythme lorsqu’il est répété.",
+      "example": "Navigation."
+    },
+    {
+      "description": "« Rythme » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Accordéons."
+    },
+    {
+      "description": "« Ouverture » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs répétitifs."
+    }
+  ],
+  "star": [
+    {
+      "description": "Les branches peuvent créer une présence rayonnante ; les significations dépendent des conventions.",
+      "example": "Emblèmes."
+    },
+    {
+      "description": "« Distinction » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Repères de distinction."
+    },
+    {
+      "description": "« Énergie » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs expressifs."
+    }
+  ],
+  "cross": [
+    {
+      "description": "Le croisement peut soutenir une idée de rencontre ; sa fonction dépend du contexte.",
+      "example": "Signes d’ajout."
+    },
+    {
+      "description": "« Équilibre » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Repères de position."
+    },
+    {
+      "description": "« Action » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs."
+    }
+  ],
+  "heart": [
+    {
+      "description": "Il peut mobiliser une convention d’affection, dont la lecture varie selon le contexte culturel.",
+      "example": "Favoris."
+    },
+    {
+      "description": "« Proximité » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Signes de soutien."
+    },
+    {
+      "description": "« Attachement » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Identités relationnelles."
+    }
+  ],
+  "droplet": [
+    {
+      "description": "La silhouette peut rappeler un liquide ; les évocations viennent aussi de sa couleur et de son contexte.",
+      "example": "Signes liés à l’eau."
+    },
+    {
+      "description": "« Délicatesse » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Motifs organiques."
+    },
+    {
+      "description": "« Vitalité » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Identités graphiques."
+    }
+  ],
+  "leaf": [
+    {
+      "description": "La silhouette peut rappeler le végétal et servir une intention de croissance.",
+      "example": "Motifs végétaux."
+    },
+    {
+      "description": "« Croissance » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Identités liées au paysage."
+    },
+    {
+      "description": "« Douceur » est une intention à explorer avec les proportions, la composition et le message. La forme seule ne la garantit pas.",
+      "example": "Illustrations."
+    }
+  ]
+})

@@ -46,5 +46,13 @@
     "year": "s.d.",
     "url": "https://a11y-guidelines.orange.com/fr/",
     "summary": "Des recommandations pratiques pour concevoir, développer et tester des interfaces accessibles. La rubrique Web propose des méthodes de test, une boîte à outils et la Va11ydette pour accompagner les audits."
+  },
+  {
+    "id": "elements",
+    "title": "Getty · Lignes, formes et composition",
+    "authors": "J. Paul Getty Museum",
+    "year": "s.d.",
+    "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/",
+    "summary": "Un vocabulaire pédagogique pour distinguer lignes, formes géométriques, formes organiques, motifs et répétition. Les évocations proposées dans Forme restent des interprétations éditoriales, pas des effets émotionnels démontrés."
   }
 ]

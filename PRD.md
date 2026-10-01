@@ -53,7 +53,7 @@ Reporté à plus tard
 
 ## 6. Périmètre des formes (proposition)
 
-Commencer par 6 familles traitées en profondeur plutôt que de survoler une trentaine de formes : carré, arrondi léger, pilule, cercle, triangle, forme organique.
+Le catalogue couvre désormais 30 formes en sept catégories : quadrilatères, contours arrondis, formes circulaires, triangles et polygones, lignes et courbes, signes et directions, formes organiques. Les variantes sont décrites dans les fiches ; les arrondis sont identifiés comme styles de contour. Chaque entrée présente ses usages, limites et pistes d’interprétation. Recherche et regroupement préservent la lisibilité ; toutes les formes sont visibles par défaut.
 
 Pour chaque famille, les données incluent : variantes, effets perçus (avec sources), contextes favorables, contre-indications, exemples réels, points d'attention (accessibilité, cohérence).
 
@@ -93,7 +93,7 @@ Style minimaliste proche de shadcn, dans la continuité de DA Gen.
 - Le nom de l'outil
 - Les critères d'évaluation du master (poids de la recherche par rapport à l'outil)
 - Le délai disponible et la taille de l'équipe
-- La liste définitive des 6 familles de formes
+- Les variantes et éventuelles extensions du catalogue de 30 formes
 - Les sources académiques à utiliser pour les effets perçus
 
 ## 11. Critères de succès

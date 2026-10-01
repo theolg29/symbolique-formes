@@ -1,11 +1,13 @@
+import { shapePaths } from '../components/shape-glyph'
+import { evocations } from '../data/evocations'
 import { describe, expect, it } from 'vitest'
-import { audit, auditButton, buttonQuality, buttonStates, buttonAppearance, exportButtonCode, defaultButton, contrastRatio, defaultProject, parseProject, preset, rankShapes, shapes, sources } from './model'
+import { audit, auditButton, buttonQuality, buttonStates, buttonAppearance, exportButtonCode, defaultButton, contrastRatio, defaultProject, parseProject, preset, rankShapes, shapes, shapeGroups, buttonShapes, usageOptions, buttonFromSystem, sources } from './model'
 describe('Recommandations',()=>{
   it('adapte la première piste au contexte sans retirer de familles',()=>{
     expect(rankShapes({usage:'button',sector:'sante',tone:'accessible',audience:'general'})[0].shape.id).toBe('soft')
     expect(rankShapes({usage:'button',sector:'finance',tone:'rigoureux',audience:'expert'})[0].shape.id).toBe('square')
     expect(rankShapes({usage:'identity',sector:'culture',tone:'expressif',audience:'jeune'})[0].shape.id).toBe('triangle')
-    expect(rankShapes(defaultProject().context)).toHaveLength(6)
+    expect(rankShapes(defaultProject().context)).toHaveLength(shapes.length)
   })
   it('associe chaque famille à des références existantes',()=>{
     for(const shape of shapes) {
@@ -156,5 +158,43 @@ describe('Lisibilité et plafonds du score',()=>{
   const thin=buttonQuality({...defaultButton(),fontSize:16,fontWeight:300},metrics)
   expect(thin.value).toBe(70)
   expect(thin.limits[0].reason).toContain('Texte très fin')
+ })
+})
+
+
+describe('Catalogue complet et usages',()=>{
+ it('couvre chaque silhouette, ses évocations et ses variantes sans référence orpheline',()=>{
+  expect(shapes).toHaveLength(30)
+  expect(new Set(shapes.map(shape=>shape.id)).size).toBe(shapes.length)
+  for(const shape of shapes){
+   expect(shapePaths[shape.id],shape.id).toBeTruthy()
+   expect(shapeGroups.some(([id])=>id===shape.group),shape.id).toBe(true)
+   expect(shape.variants.length,shape.id).toBeGreaterThan(0)
+   expect(shape.associations,shape.id).toHaveLength(3)
+   expect(evocations[shape.id],shape.id).toHaveLength(3)
+   expect(shape.usages.length,shape.id).toBeGreaterThan(0)
+   expect(shape.usages.every(usage=>usageOptions.some(([id])=>id===usage)),shape.id).toBe(true)
+  }
+ })
+ it('donne toujours la priorité à une forme compatible avec l’usage',()=>{
+  for(const [usage] of usageOptions)for(const tone of ['accessible','rigoureux','expressif'])for(const sector of ['sante','finance','culture','technologie','education'])for(const audience of ['general','jeune','expert','senior']){
+   const recommendation=rankShapes({usage,tone,sector,audience})[0]
+   expect(recommendation.shape.usages,`${usage}/${tone}/${sector}/${audience}`).toContain(usage)
+   expect(recommendation.reasons.length).toBeGreaterThan(0)
+  }
+ })
+ it('conserve les favoris nouveaux et historiques dans un export',()=>{
+  const project={...defaultProject(),favorites:shapes.map(shape=>shape.id),comparison:['line','star'],systems:[preset('line'),preset('star')]}
+  const restored=parseProject(JSON.parse(JSON.stringify(project)))
+  expect(restored.favorites).toHaveLength(30)
+  expect(restored.systems.map(system=>system.family)).toEqual(['line','star'])
+ })
+ it('crée un bouton régulier à partir des couleurs d’une forme décorative',()=>{
+  expect(buttonShapes.map(shape=>shape.id)).toEqual(['square','soft','pill','rectangle'])
+  const button=buttonFromSystem({...preset('line'),foreground:'#123456',background:'#abcdef'})
+  expect(button.family).toBe('soft')
+  expect(button.foreground).toBe('#123456')
+  expect(button.background).toBe('#abcdef')
+  expect(buttonFromSystem(preset('rectangle')).family).toBe('rectangle')
  })
 })

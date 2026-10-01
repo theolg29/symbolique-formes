@@ -51,6 +51,14 @@
       "Rigueur",
       "Stabilité",
       "Fermeté"
+    ],
+    "group": "quadrilateral",
+    "usages": [
+      "button",
+      "card",
+      "badge",
+      "identity",
+      "pattern"
     ]
   },
   {
@@ -108,6 +116,13 @@
       "Accueil",
       "Douceur",
       "Calme"
+    ],
+    "group": "rounded",
+    "usages": [
+      "button",
+      "card",
+      "badge",
+      "identity"
     ]
   },
   {
@@ -163,6 +178,12 @@
       "Douceur",
       "Fluidité",
       "Convivialité"
+    ],
+    "group": "rounded",
+    "usages": [
+      "button",
+      "badge",
+      "identity"
     ]
   },
   {
@@ -218,6 +239,13 @@
       "Unité",
       "Douceur",
       "Proximité"
+    ],
+    "group": "circular",
+    "usages": [
+      "badge",
+      "identity",
+      "icon",
+      "pattern"
     ]
   },
   {
@@ -274,6 +302,12 @@
       "Énergie",
       "Tension",
       "Direction"
+    ],
+    "group": "polygon",
+    "usages": [
+      "identity",
+      "icon",
+      "pattern"
     ]
   },
   {
@@ -330,6 +364,1357 @@
       "Spontanéité",
       "Liberté",
       "Naturel"
+    ],
+    "group": "organic",
+    "usages": [
+      "identity",
+      "pattern"
+    ]
+  },
+  {
+    "id": "rectangle",
+    "name": "Rectangle",
+    "group": "quadrilateral",
+    "usages": [
+      "button",
+      "card",
+      "badge",
+      "identity",
+      "pattern"
+    ],
+    "description": "Un cadre allongé pour organiser le contenu.",
+    "tags": [
+      "Organisation",
+      "Stabilité"
+    ],
+    "variants": [
+      "Horizontal",
+      "Vertical",
+      "Bandeau"
+    ],
+    "effect": "Son allongement peut servir une impression de structure et de continuité.",
+    "favorable": [
+      "Cartes de contenu",
+      "Bandeaux",
+      "Actions textuelles"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Adaptez les proportions au texte plutôt que de le comprimer.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "rigoureux"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Organisation",
+      "Stabilité",
+      "Clarté"
+    ]
+  },
+  {
+    "id": "diamond",
+    "name": "Losange",
+    "group": "quadrilateral",
+    "usages": [
+      "identity",
+      "icon",
+      "pattern"
+    ],
+    "description": "Une géométrie inclinée, avec quatre pointes.",
+    "tags": [
+      "Dynamisme",
+      "Précision"
+    ],
+    "variants": [
+      "Carré tourné",
+      "Losange étiré",
+      "Contour"
+    ],
+    "effect": "L’inclinaison peut introduire une tension visuelle dans une composition régulière.",
+    "favorable": [
+      "Motifs répétitifs",
+      "Signes graphiques",
+      "Repères de diagramme"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Les pointes réduisent la surface utile ; gardez le texte à distance.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "expressif"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Dynamisme",
+      "Précision",
+      "Singularité"
+    ]
+  },
+  {
+    "id": "trapezoid",
+    "name": "Trapèze",
+    "group": "quadrilateral",
+    "usages": [
+      "identity",
+      "pattern"
+    ],
+    "description": "Deux bases parallèles et un contour qui s’élargit.",
+    "tags": [
+      "Perspective",
+      "Progression"
+    ],
+    "variants": [
+      "Symétrique",
+      "Asymétrique",
+      "Inversé"
+    ],
+    "effect": "La différence entre les bases peut évoquer une perspective ou une progression.",
+    "favorable": [
+      "Compositions en perspective",
+      "Motifs",
+      "Identités géométriques"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Le sens d’élargissement change la lecture ; testez les deux orientations.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "expressif"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Perspective",
+      "Progression",
+      "Assise"
+    ]
+  },
+  {
+    "id": "parallelogram",
+    "name": "Parallélogramme",
+    "group": "quadrilateral",
+    "usages": [
+      "identity",
+      "pattern"
+    ],
+    "description": "Un bloc oblique aux côtés parallèles.",
+    "tags": [
+      "Élan",
+      "Rythme"
+    ],
+    "variants": [
+      "Incliné à droite",
+      "Incliné à gauche",
+      "Bande oblique"
+    ],
+    "effect": "L’oblique peut soutenir une intention de mouvement ; l’orientation compte.",
+    "favorable": [
+      "Identités dynamiques",
+      "Bandeaux décoratifs",
+      "Motifs obliques"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Un texte incliné ou une découpe excessive peut compliquer la lecture.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "expressif"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Élan",
+      "Rythme",
+      "Tension"
+    ]
+  },
+  {
+    "id": "ellipse",
+    "name": "Ellipse",
+    "group": "circular",
+    "usages": [
+      "identity",
+      "icon",
+      "pattern"
+    ],
+    "description": "Une forme ronde étirée sur un axe.",
+    "tags": [
+      "Souplesse",
+      "Amplitude"
+    ],
+    "variants": [
+      "Horizontale",
+      "Verticale",
+      "Contour"
+    ],
+    "effect": "La courbure continue peut servir une intention douce, avec une direction donnée par son axe.",
+    "favorable": [
+      "Médaillons",
+      "Motifs souples",
+      "Identités graphiques"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Une ellipse n’est pas une pilule : ses extrémités se resserrent davantage.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "accessible"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Souplesse",
+      "Amplitude",
+      "Douceur"
+    ]
+  },
+  {
+    "id": "ring",
+    "name": "Anneau",
+    "group": "circular",
+    "usages": [
+      "identity",
+      "icon",
+      "pattern"
+    ],
+    "description": "Un contour circulaire avec un centre ouvert.",
+    "tags": [
+      "Continuité",
+      "Lien"
+    ],
+    "variants": [
+      "Fin",
+      "Épais",
+      "Concentrique"
+    ],
+    "effect": "Le vide central et le contour continu peuvent servir une idée de lien ou de cycle.",
+    "favorable": [
+      "Indicateurs circulaires",
+      "Cadres de médaillon",
+      "Motifs concentriques"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "L’épaisseur doit rester visible à petite taille ; un indicateur doit aussi avoir un libellé.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "accessible"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Continuité",
+      "Lien",
+      "Ouverture"
+    ]
+  },
+  {
+    "id": "semicircle",
+    "name": "Demi-cercle",
+    "group": "circular",
+    "usages": [
+      "identity",
+      "pattern"
+    ],
+    "description": "Une courbe régulière posée sur une ligne droite.",
+    "tags": [
+      "Accueil",
+      "Équilibre"
+    ],
+    "variants": [
+      "Dôme",
+      "Coupe",
+      "Orienté sur le côté"
+    ],
+    "effect": "L’alliance d’une base droite et d’une courbe peut évoquer un équilibre entre structure et douceur.",
+    "favorable": [
+      "Compositions modulaires",
+      "Motifs architecturaux",
+      "Identités graphiques"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Le sens de la forme change fortement selon sa rotation.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "accessible"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Accueil",
+      "Équilibre",
+      "Émergence"
+    ]
+  },
+  {
+    "id": "point",
+    "name": "Point",
+    "group": "circular",
+    "usages": [
+      "separator",
+      "icon",
+      "pattern",
+      "identity"
+    ],
+    "description": "Un repère minimal, isolé ou répété.",
+    "tags": [
+      "Repère",
+      "Rythme"
+    ],
+    "variants": [
+      "Disque",
+      "Pointillé",
+      "Constellation"
+    ],
+    "effect": "Un point isolé peut attirer l’attention ; répété, il peut donner un rythme.",
+    "favorable": [
+      "Puces",
+      "Séparations discrètes",
+      "Motifs de points"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Un point coloré ne suffit pas à communiquer un statut ; ajoutez du texte.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "rigoureux"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Repère",
+      "Rythme",
+      "Concentration"
+    ]
+  },
+  {
+    "id": "pentagon",
+    "name": "Pentagone",
+    "group": "polygon",
+    "usages": [
+      "identity",
+      "icon",
+      "pattern"
+    ],
+    "description": "Un polygone à cinq côtés.",
+    "tags": [
+      "Structure",
+      "Singularité"
+    ],
+    "variants": [
+      "Régulier",
+      "Allongé",
+      "Contour"
+    ],
+    "effect": "Le nombre de côtés peut donner une identité géométrique distincte, sans signification universelle.",
+    "favorable": [
+      "Emblèmes",
+      "Motifs géométriques",
+      "Marqueurs"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "La silhouette peut rappeler un écusson selon son orientation ; vérifiez cette lecture.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "rigoureux"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Structure",
+      "Singularité",
+      "Protection"
+    ]
+  },
+  {
+    "id": "hexagon",
+    "name": "Hexagone",
+    "group": "polygon",
+    "usages": [
+      "identity",
+      "icon",
+      "pattern"
+    ],
+    "description": "Six côtés pour un motif qui s’assemble.",
+    "tags": [
+      "Connexion",
+      "Organisation"
+    ],
+    "variants": [
+      "Régulier",
+      "Étendu",
+      "Nid d’abeille"
+    ],
+    "effect": "Son assemblage en pavage peut soutenir une idée de réseau ou d’organisation.",
+    "favorable": [
+      "Pavages",
+      "Identités modulaires",
+      "Diagrammes de réseau"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Des cellules trop serrées peuvent rendre un contenu dense ; gardez de l’espace.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "rigoureux"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Connexion",
+      "Organisation",
+      "Cohésion"
+    ]
+  },
+  {
+    "id": "octagon",
+    "name": "Octogone",
+    "group": "polygon",
+    "usages": [
+      "identity",
+      "icon",
+      "pattern"
+    ],
+    "description": "Huit côtés et des angles coupés.",
+    "tags": [
+      "Présence",
+      "Protection"
+    ],
+    "variants": [
+      "Régulier",
+      "Carré tronqué",
+      "Contour"
+    ],
+    "effect": "Sa silhouette peut exprimer une présence forte ; les conventions de signalisation modifient sa lecture.",
+    "favorable": [
+      "Signes graphiques",
+      "Cadres géométriques",
+      "Motifs"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Un octogone rouge peut rappeler un signal d’arrêt ; vérifiez les conventions du contexte.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "rigoureux"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Présence",
+      "Protection",
+      "Vigilance"
+    ]
+  },
+  {
+    "id": "line",
+    "name": "Ligne droite",
+    "group": "line",
+    "usages": [
+      "separator",
+      "pattern",
+      "identity"
+    ],
+    "description": "Un trait pour séparer, aligner ou relier.",
+    "tags": [
+      "Calme",
+      "Structure"
+    ],
+    "variants": [
+      "Horizontale",
+      "Verticale",
+      "Pointillés",
+      "Tirets"
+    ],
+    "effect": "Une horizontale peut servir une composition calme ; une verticale peut renforcer l’alignement.",
+    "favorable": [
+      "Séparateurs",
+      "Axes de composition",
+      "Connexions de diagramme"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Un trait trop fin disparaît à petite taille ; ne séparez pas chaque élément sans raison.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "rigoureux"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Calme",
+      "Structure",
+      "Continuité"
+    ]
+  },
+  {
+    "id": "diagonal",
+    "name": "Ligne diagonale",
+    "group": "line",
+    "usages": [
+      "separator",
+      "pattern",
+      "identity"
+    ],
+    "description": "Un trait oblique qui donne une direction.",
+    "tags": [
+      "Élan",
+      "Tension"
+    ],
+    "variants": [
+      "Montante",
+      "Descendante",
+      "Hachures"
+    ],
+    "effect": "L’oblique peut orienter le regard et introduire une sensation de mouvement.",
+    "favorable": [
+      "Motifs obliques",
+      "Transitions graphiques",
+      "Compositions dynamiques"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Une diagonale ne représente pas forcément une progression ; le contexte et le sens de lecture comptent.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "expressif"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Élan",
+      "Tension",
+      "Mouvement"
+    ]
+  },
+  {
+    "id": "curve",
+    "name": "Courbe / arc",
+    "group": "line",
+    "usages": [
+      "separator",
+      "pattern",
+      "identity"
+    ],
+    "description": "Un trait courbe qui accompagne le regard.",
+    "tags": [
+      "Douceur",
+      "Fluidité"
+    ],
+    "variants": [
+      "Arc",
+      "Courbe en S",
+      "Courbe libre"
+    ],
+    "effect": "La continuité d’une courbe peut soutenir une impression de fluidité.",
+    "favorable": [
+      "Connexions souples",
+      "Cadres ouverts",
+      "Transitions graphiques"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Évitez les courbes qui brouillent le lien entre deux éléments.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "accessible"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Douceur",
+      "Fluidité",
+      "Lien"
+    ]
+  },
+  {
+    "id": "wave",
+    "name": "Vague",
+    "group": "line",
+    "usages": [
+      "separator",
+      "pattern",
+      "identity"
+    ],
+    "description": "Une courbe répétée, souple et rythmée.",
+    "tags": [
+      "Fluidité",
+      "Rythme"
+    ],
+    "variants": [
+      "Sinusoïde",
+      "Ondulation libre",
+      "Vagues superposées"
+    ],
+    "effect": "Une ondulation régulière peut évoquer un rythme ; sa fréquence change l’impression produite.",
+    "favorable": [
+      "Séparateurs décoratifs",
+      "Motifs",
+      "Identités liées au paysage"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Une animation permanente peut distraire ; conservez une version immobile.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "accessible"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Fluidité",
+      "Rythme",
+      "Sérénité"
+    ]
+  },
+  {
+    "id": "zigzag",
+    "name": "Zigzag",
+    "group": "line",
+    "usages": [
+      "separator",
+      "pattern",
+      "identity"
+    ],
+    "description": "Une ligne brisée aux changements de direction nets.",
+    "tags": [
+      "Énergie",
+      "Rupture"
+    ],
+    "variants": [
+      "Dents régulières",
+      "Brisure libre",
+      "Chevron répété"
+    ],
+    "effect": "Les ruptures successives peuvent soutenir une intention énergique ou discontinue.",
+    "favorable": [
+      "Motifs expressifs",
+      "Séparateurs décoratifs",
+      "Compositions contrastées"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Une répétition serrée peut créer un effet visuel fatigant.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "expressif"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Énergie",
+      "Rupture",
+      "Tension"
+    ]
+  },
+  {
+    "id": "spiral",
+    "name": "Spirale",
+    "group": "line",
+    "usages": [
+      "identity",
+      "icon",
+      "pattern"
+    ],
+    "description": "Un trait qui s’enroule autour d’un centre.",
+    "tags": [
+      "Expansion",
+      "Curiosité"
+    ],
+    "variants": [
+      "Ouverte",
+      "Serrée",
+      "Double spirale"
+    ],
+    "effect": "L’enroulement peut évoquer une expansion ou un mouvement vers le centre.",
+    "favorable": [
+      "Motifs centrés",
+      "Signes graphiques",
+      "Identités expressives"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Une rotation animée peut gêner ; respectez la réduction des mouvements.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "expressif"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Expansion",
+      "Curiosité",
+      "Mouvement"
+    ]
+  },
+  {
+    "id": "arrow",
+    "name": "Flèche",
+    "group": "sign",
+    "usages": [
+      "icon",
+      "identity",
+      "pattern"
+    ],
+    "description": "Une direction explicitée par une pointe.",
+    "tags": [
+      "Direction",
+      "Progression"
+    ],
+    "variants": [
+      "Droite",
+      "Double",
+      "Courbe",
+      "À hampe"
+    ],
+    "effect": "La pointe peut orienter le regard ; le sens exact dépend de son usage.",
+    "favorable": [
+      "Navigation",
+      "Diagrammes de parcours",
+      "Repères directionnels"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Gardez un libellé pour les actions ambiguës et adaptez le sens au contexte de lecture.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "rigoureux"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Direction",
+      "Progression",
+      "Décision"
+    ]
+  },
+  {
+    "id": "chevron",
+    "name": "Chevron",
+    "group": "sign",
+    "usages": [
+      "icon",
+      "pattern",
+      "identity"
+    ],
+    "description": "Deux segments qui convergent vers une pointe.",
+    "tags": [
+      "Orientation",
+      "Rythme"
+    ],
+    "variants": [
+      "Simple",
+      "Double",
+      "Haut / bas"
+    ],
+    "effect": "Un chevron peut servir une intention directionnelle ou un rythme lorsqu’il est répété.",
+    "favorable": [
+      "Navigation",
+      "Accordéons",
+      "Motifs répétitifs"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Un chevron vers le bas peut annoncer un menu ; évitez cette convention s’il ne s’ouvre pas.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "rigoureux"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Orientation",
+      "Rythme",
+      "Ouverture"
+    ]
+  },
+  {
+    "id": "star",
+    "name": "Étoile",
+    "group": "sign",
+    "usages": [
+      "icon",
+      "identity",
+      "pattern"
+    ],
+    "description": "Des branches qui rayonnent depuis un centre.",
+    "tags": [
+      "Rayonnement",
+      "Distinction"
+    ],
+    "variants": [
+      "Quatre branches",
+      "Cinq branches",
+      "Éclat multibranche"
+    ],
+    "effect": "Les branches peuvent créer une présence rayonnante ; les significations dépendent des conventions.",
+    "favorable": [
+      "Emblèmes",
+      "Repères de distinction",
+      "Motifs expressifs"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Une étoile peut signifier note ou favori ; accompagnez les actions d’un nom accessible.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "expressif"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Rayonnement",
+      "Distinction",
+      "Énergie"
+    ]
+  },
+  {
+    "id": "cross",
+    "name": "Croix",
+    "group": "sign",
+    "usages": [
+      "icon",
+      "identity",
+      "pattern"
+    ],
+    "description": "Deux axes qui se croisent.",
+    "tags": [
+      "Rencontre",
+      "Équilibre"
+    ],
+    "variants": [
+      "Plus",
+      "Croix diagonale",
+      "Branches arrondies"
+    ],
+    "effect": "Le croisement peut soutenir une idée de rencontre ; sa fonction dépend du contexte.",
+    "favorable": [
+      "Signes d’ajout",
+      "Repères de position",
+      "Motifs"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Plus, fermeture, santé ou symbole culturel : évitez une interprétation ambiguë.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "rigoureux"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Rencontre",
+      "Équilibre",
+      "Action"
+    ]
+  },
+  {
+    "id": "heart",
+    "name": "Cœur",
+    "group": "sign",
+    "usages": [
+      "icon",
+      "identity",
+      "pattern"
+    ],
+    "description": "Un signe figuratif aux deux lobes arrondis.",
+    "tags": [
+      "Affection",
+      "Proximité"
+    ],
+    "variants": [
+      "Plein",
+      "Contour",
+      "Cœur stylisé"
+    ],
+    "effect": "Il peut mobiliser une convention d’affection, dont la lecture varie selon le contexte culturel.",
+    "favorable": [
+      "Favoris",
+      "Signes de soutien",
+      "Identités relationnelles"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Le cœur peut signifier aimer ou enregistrer ; nommez précisément l’action.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "accessible"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Affection",
+      "Proximité",
+      "Attachement"
+    ]
+  },
+  {
+    "id": "droplet",
+    "name": "Goutte",
+    "group": "organic",
+    "usages": [
+      "identity",
+      "icon",
+      "pattern"
+    ],
+    "description": "Une pointe prolongée par une base arrondie.",
+    "tags": [
+      "Fraîcheur",
+      "Délicatesse"
+    ],
+    "variants": [
+      "Symétrique",
+      "Inclinée",
+      "Contour"
+    ],
+    "effect": "La silhouette peut rappeler un liquide ; les évocations viennent aussi de sa couleur et de son contexte.",
+    "favorable": [
+      "Signes liés à l’eau",
+      "Motifs organiques",
+      "Identités graphiques"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Une goutte peut évoquer l’eau, une larme ou un liquide ; clarifiez le message.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "accessible"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Fraîcheur",
+      "Délicatesse",
+      "Vitalité"
+    ]
+  },
+  {
+    "id": "leaf",
+    "name": "Feuille",
+    "group": "organic",
+    "usages": [
+      "identity",
+      "icon",
+      "pattern"
+    ],
+    "description": "Une silhouette naturelle, effilée aux extrémités.",
+    "tags": [
+      "Vitalité",
+      "Croissance"
+    ],
+    "variants": [
+      "Ovale",
+      "Lancéolée",
+      "Asymétrique"
+    ],
+    "effect": "La silhouette peut rappeler le végétal et servir une intention de croissance.",
+    "favorable": [
+      "Motifs végétaux",
+      "Identités liées au paysage",
+      "Illustrations"
+    ],
+    "avoid": [
+      "Employer cette silhouette comme contenant de texte sans vérifier la surface utile",
+      "Attribuer une émotion universelle à la forme"
+    ],
+    "attention": "Une feuille ne prouve pas un engagement écologique ; gardez les messages factuels.",
+    "sourceIds": [
+      "elements"
+    ],
+    "evidence": "Interprétation éditoriale",
+    "examples": [
+      {
+        "name": "Getty · vocabulaire des lignes et des formes",
+        "url": "https://www.getty.edu/education/k-12-learning/describe-listen-draw/vocabulary-for-describing-an-artwork/"
+      }
+    ],
+    "tones": [
+      "accessible"
+    ],
+    "sectors": [],
+    "audiences": [
+      "general"
+    ],
+    "radius": 0,
+    "outer": 0,
+    "padding": 16,
+    "associations": [
+      "Vitalité",
+      "Croissance",
+      "Douceur"
     ]
   }
 ]

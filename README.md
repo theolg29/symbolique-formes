@@ -25,7 +25,7 @@ Aucun backend, aucune clé API. Satoshi est chargée directement depuis Fontshar
 Les outils sont accessibles indépendamment dans la barre latérale : Recommander, Familles, Comparer, Créer un bouton, Référentiels et Favoris.
 
 1. Commencer par l’écran de contexte : décrire l’usage prévu, le secteur, le ton de marque et le public.
-2. Cliquer sur « Recommander une forme » pour afficher sur place la forme la plus adaptée au contexte et sa justification et un aperçu adapté à l’usage (bouton, carte, badge ou identité). L’onglet Familles présente séparément le catalogue des six formes, sans classement, avec leurs effets perçus, limites, variantes et références.
+2. Cliquer sur « Recommander une forme » pour afficher sur place la forme la plus adaptée au contexte et sa justification et un aperçu adapté à l’usage (bouton, carte, badge, identité, séparateur, motif ou pictogramme). L’onglet Familles présente séparément le catalogue de 30 formes réparties en sept catégories, sans classement, avec recherche par nom, variante ou évocation, avec leurs effets perçus, limites, variantes et références.
 3. Ajouter jusqu’à deux familles à la comparaison. Un compteur dans la navigation indique la sélection ; le bouton devient noir une fois la famille sélectionnée et permet de la retirer. Les explications et références s’ouvrent dans une popup.
 4. Retenir une option en comparant la même interface ou la même composition d’identité ; ajuster les rayons, espacements, cibles et couleurs.
 5. Créer un bouton à partir d’une famille ou de l’option comparée : modifier le texte, la taille et la graisse, les paddings, l’arrondi, les couleurs et la bordure. Régler les couleurs au repos, au survol, au focus et à l’état désactivé. Les contrôles suivent le bouton et l’état réellement affichés. L’aperçu teste les interactions réelles par défaut ; « Afficher l’état sélectionné » permet de figer la simulation. Les panneaux défilants affichent une barre et un indice tant qu’il reste du contenu à lire. Annuler et rétablir les réglages avec les boutons ou Ctrl/Cmd + Z et Ctrl/Cmd + Maj + Z (les champs gardent leurs raccourcis natifs). L’historique conserve les 50 dernières interactions, sans enregistrer chaque cran d’un même glissement. Exporter le HTML/CSS depuis l’aperçu et copier le code.
@@ -41,7 +41,7 @@ Le nom « Forme » reste provisoire. Le classement est une heuristique éditoria
 
 Les triangles et contours organiques sont appliqués aux signes et motifs. Les composants fonctionnels gardent une géométrie régulière. Pour le cercle, les boutons textuels deviennent des capsules ; les actions iconographiques restent circulaires.
 
-Le contrôle d’imbrication est applicable aux familles carré et arrondi léger. Il vérifie un repère de contours concentriques : rayon intérieur = max(0, rayon extérieur − espacement). Les autres familles nécessitent une appréciation visuelle.
+Le contrôle d’imbrication est applicable aux formes carré, rectangle et arrondi léger. Il vérifie un repère de contours concentriques : rayon intérieur = max(0, rayon extérieur − espacement). Les autres familles nécessitent une appréciation visuelle.
 
 Le RGAA 4.1.2 est la dernière version publiée, vérifiée sur le site officiel le 30 septembre 2026. L’atelier référence les critères de contraste 3.2 et 3.3. Les contrastes des états et du contour de focus sont calculés sur le fond choisi. Les composants désactivés sont exemptés des exigences de contraste ; leurs ratios restent informatifs. La navigation clavier, la visibilité du focus dans la page, le sens du libellé et le texte agrandi demandent une vérification manuelle. Les repères WCAG 2.2 de taille sont complémentaires au RGAA.
 
@@ -51,7 +51,7 @@ Les favoris conservent les familles et des snapshots indépendants des boutons, 
 
 ## Structure
 
-- `src/data/shapes.json` : six familles, variantes, contextes, limites et exemples.
+- `src/data/shapes.json` : 30 formes, catégories, usages, variantes, contextes, limites et exemples.
 - `src/data/sources.json` : références académiques et WCAG.
 - `src/lib/model.ts` : recommandations, contrastes, diagnostics et validation des imports.
 - `src/components/system-preview.tsx` : compositions communes aux systèmes A/B.
@@ -78,3 +78,11 @@ Les logos des éditeurs de référentiels sont stockés localement dans `public/
 Les réglages du bouton sont sauvegardés dans le navigateur et inclus dans les exports JSON et PDF. Les anciens fichiers JSON sans bouton restent importables.
 
 L’usage prévu est prioritaire dans la recommandation (8 points, puis ton 3, secteur 2, public 1). Les justifications détaillent les choix correspondants, sans score de confiance artificiel. Les styles de boutons peuvent être enregistrés sous un nom et réappliqués ; ils sont conservés dans l’export JSON. Les anciens exports sans usage ou styles sont importables. Les références comprennent les recommandations Orange. Les émotions et associations des formes sont des interprétations à valider en contexte, distinctes des tendances étudiées.
+
+## Catalogue étendu
+
+Les sept catégories distinguent quadrilatères, contours arrondis, formes circulaires, triangles et polygones, lignes et courbes, signes et directions, formes organiques. Toutes les entrées sont visibles par défaut ; recherche et catégorie permettent de retrouver une forme. Les variantes (orientations, pointillés, nombre de branches…) sont décrites dans la popup.
+
+Les lignes et signes ont un aperçu propre dans les cartes, la comparaison, la roue des évocations et le PDF. Leur ajout à la comparaison ouvre l’aperçu d’identité ; l’aperçu d’interface garde des contrôles réguliers. Le créateur de bouton propose carré, rectangle, arrondi léger et pilule. Si une forme décorative est retenue, il reprend ses couleurs avec un contour régulier, sans simuler un bouton en forme de ligne ou d’étoile. Les anciens favoris et styles restent importables.
+
+Le vocabulaire des nouveaux éléments s’appuie sur le guide pédagogique du Getty Museum, présent dans les référentiels. Les associations émotionnelles sont des pistes éditoriales, pas des résultats scientifiques spécifiques à chaque silhouette.

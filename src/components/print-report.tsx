@@ -1,4 +1,4 @@
-import { audit, auditButton, buttonQuality, buttonAppearance, buttonStates, contrastRatio, usageOptions, shapes, sources, type ButtonMetrics, type Project } from '@/lib/model'
+import { audit, auditButton, buttonQuality, buttonAppearance, buttonStates, contrastRatio, usageOptions, isButtonShape, shapes, sources, type ButtonMetrics, type Project } from '@/lib/model'
 import { ShapeGlyph } from './shape-glyph'
 
 export function PrintReport({project,chosen,buttonMetrics}:{project:Project;chosen:number|null;buttonMetrics:ButtonMetrics|null}) {
@@ -17,12 +17,12 @@ export function PrintReport({project,chosen,buttonMetrics}:{project:Project;chos
       <div className="report-systems">{project.systems.slice(0,project.comparison.length).map((system,index)=>{
         const shape=shapes.find(shape=>shape.id===system.family)!
         const result=audit(system)
-        const radius=['pill','circle'].includes(system.family) ? system.height/2 : system.radius
+        const radius=['pill','circle'].includes(system.family) ? system.height/2 : isButtonShape(system.family) ? system.radius : 8
         return <article className="report-system" key={index}>
           <h3>Option {index===0 ? 'A':'B'} · {shape.name}{chosen===index ? ' · Retenue':''}</h3>
           <ShapeGlyph family={shape.id}/>
           <p>{shape.description}</p>
-          <div className="report-sample" style={{borderRadius:system.outer,padding:system.padding}}><div className="report-sample-art" style={{borderRadius:radius}}><ShapeGlyph family={shape.id}/></div><p>Un même contenu, deux contours.</p><div className="report-sample-action" style={{borderRadius:radius,minHeight:system.height,background:system.background,color:system.foreground}}>Commencer</div></div>
+          <div className="report-sample" style={{borderRadius:system.outer,padding:system.padding}}><div className="report-sample-art" style={{borderRadius:radius}}><ShapeGlyph family={shape.id}/></div><p>La forme comme signature graphique.</p><div className="report-sample-action" style={{borderRadius:radius,minHeight:system.height,background:system.background,color:system.foreground}}>Commencer</div></div>
           <dl><div><dt>Rayon intérieur</dt><dd>{system.radius} px</dd></div><div><dt>Rayon extérieur</dt><dd>{system.outer} px</dd></div><div><dt>Espacement</dt><dd>{system.padding} px</dd></div><div><dt>Hauteur des cibles</dt><dd>{system.height} px</dd></div><div><dt>Texte / fond</dt><dd>{system.foreground} / {system.background}</dd></div></dl>
           <h4>Contrôles</h4>
           <ul className="report-checks"><li data-status={result.nested===null ? 'manual' : result.nested ? 'success':'warning'}>Imbrication : {result.nested===null ? 'à évaluer visuellement' : result.nested ? 'vérifiée' : `à ajuster (rayon attendu : ${result.expected} px)`}</li><li data-status={result.contrast ? 'success':'warning'}>Texte · RGAA 3.2 : {result.ratio.toFixed(2)}:1, {result.contrast ? 'seuil vérifié':'à ajuster'}</li><li data-status={result.boundary ? 'success':'warning'}>Composants · RGAA 3.3 : {result.boundary ? 'seuil vérifié':'à ajuster'}</li><li data-status={result.target ? 'success':'warning'}>Cibles · WCAG 2.2 : {result.target ? 'seuil de 24 px vérifié':'à agrandir'}</li><li data-status="manual">Clavier, focus et étiquettes : à évaluer.</li></ul>

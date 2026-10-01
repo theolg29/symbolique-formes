@@ -4,6 +4,13 @@ import { colord } from 'colord'
 
 export const shapes = shapesData
 export const sources = sourcesData
+export const shapeGroups = [
+  ['quadrilateral','Quadrilatères'], ['rounded','Contours arrondis'],
+  ['circular','Formes circulaires'], ['polygon','Triangles et polygones'],
+  ['line','Lignes et courbes'], ['sign','Signes et directions'], ['organic','Formes organiques'],
+]
+export const buttonShapes = shapes.filter(shape=>shape.usages.includes('button'))
+export const isButtonShape = (id:string)=>buttonShapes.some(shape=>shape.id===id)
 export type Shape = typeof shapes[number]
 export type Context = { sector: string; tone: string; audience: string; usage:string }
 export type ShapeSystem = { family: string; radius: number; outer: number; padding: number; height: number; foreground: string; background: string }
@@ -22,16 +29,15 @@ export function preset(id: string): ShapeSystem {
 export function defaultProject(): Project {
   return { buttonStyles:[], button:defaultButton(), version: 1, name: 'Mon exploration', context: { sector: 'sante', tone: 'accessible', audience: 'general', usage:'button' }, systems: [preset('soft'), preset('square')], favorites: [], comparison: [] }
 }
-export const usageOptions = [['button','Bouton / action'],['card','Carte / contenu'],['badge','Badge / étiquette'],['identity','Identité graphique']]
-const usageFamilies:Record<string,string[]>={button:['square','soft','pill'],card:['square','soft'],badge:['pill','circle'],identity:['square','soft','pill','circle','triangle','organic']}
+export const usageOptions = [['button','Bouton / action'],['card','Carte / contenu'],['badge','Badge / étiquette'],['identity','Identité graphique'],['separator','Séparateur / ligne'],['pattern','Motif / composition'],['icon','Pictogramme / signe']]
 export function rankShapes(context:Context) {
   const usage=context.usage
   const toneNames:Record<string,string>={accessible:'accessible',rigoureux:'rigoureux',expressif:'expressif'}
   const sectorNames:Record<string,string>={sante:'santé et bien-être',finance:'finance et services',culture:'culture et création',technologie:'technologie',education:'éducation'}
   const audienceNames:Record<string,string>={general:'grand public',jeune:'jeune public',expert:'professionnels',senior:'public senior'}
-  const usageReasons:Record<string,string>={button:'Un contour régulier adapté à une action avec du texte.',card:'Une forme adaptée aux blocs de contenu et aux éléments imbriqués.',badge:'Une silhouette compacte adaptée aux marqueurs et aux étiquettes.',identity:'Une piste pour la signature graphique de votre identité.'}
+  const usageReasons:Record<string,string>={button:'Un contour régulier adapté à une action avec du texte.',card:'Une forme adaptée aux blocs de contenu et aux éléments imbriqués.',badge:'Une silhouette compacte adaptée aux marqueurs et aux étiquettes.',identity:'Une piste pour la signature graphique de votre identité.',separator:'Un trait ou un repère adapté à la séparation des contenus.',pattern:'Une silhouette à répéter ou à combiner dans une composition.',icon:'Un signe à associer à un sens et à un libellé explicites.'}
   return shapes.map(shape=>{
-    const suited=usageFamilies[usage].includes(shape.id)
+    const suited=shape.usages.includes(usage)
     const reasons:string[]=[]
     if(suited) reasons.push(usageReasons[usage])
     if(shape.tones.includes(context.tone)) reasons.push(`Une piste cohérente avec le ton ${toneNames[context.tone]} recherché.`)
@@ -53,7 +59,7 @@ export function contrastRatio(foreground: string, background: string): number {
 export function audit(system: ShapeSystem) {
   const expected = Math.max(0, system.outer - system.padding)
   const ratio = contrastRatio(system.foreground, system.background)
-  const regular = ['square','soft'].includes(system.family)
+  const regular = ['square','rectangle','soft'].includes(system.family)
   return {
     expected, ratio,
     nested: regular ? Math.abs(system.radius - expected) <= 1 : null,
@@ -69,6 +75,7 @@ export function defaultButton(family='soft'): ButtonDesign {
   return {family,label:'Continuer',fontSize:14,fontWeight:650,paddingX:20,paddingY:14,radius:['pill','circle'].includes(family) ? 96 : preset(family).radius,foreground:'#ffffff',background:'#18181b',canvas:'#ffffff',borderColor:'#18181b',borderWidth:0}
 }
 export function buttonFromSystem(system:ShapeSystem): ButtonDesign {
+  if(!isButtonShape(system.family)) return {...defaultButton(),foreground:system.foreground,background:system.background}
   return {...defaultButton(system.family),radius:['pill','circle'].includes(system.family) ? 96 : system.radius,paddingX:system.padding,paddingY:Math.max(0,(system.height-14*1.4)/2),foreground:system.foreground,background:system.background}
 }
 function containsSquare(metrics:ButtonMetrics,size:number) {

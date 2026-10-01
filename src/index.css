@@ -93,7 +93,8 @@
 .family-recommended .shape-glyph { color:var(--signal); }
 .recommendation-badge { position:absolute; left:10px; top:10px; background:white; border:1px solid var(--border); color:var(--signal); font-size:9px; font-weight:400; padding:3px 6px; gap:4px; }
 .favorite-button { position:absolute; right:5px; top:5px; color:var(--muted-foreground); }
-.favorite-button[aria-pressed="true"] { color:var(--signal); }
+.favorite-button[aria-pressed="true"] { color:#FFF201; }
+.favorite-button[aria-pressed="true"] svg { fill:#FFF201; stroke:#18181b; }
 .family-content { padding:17px 16px 15px; }
 .family-title { display:flex; flex-direction:column; gap:3px; }
 .family-title h3 { font-size:14px; font-weight:600; }
@@ -1056,3 +1057,42 @@ a[data-slot="button"] { text-decoration-line:none; }
 .color-precise label { display:flex; justify-content:space-between; font-size:12px; margin-top:12px; }
 .color-precise input { width:100%; accent-color:#18181b; cursor:ew-resize; }
 @media(max-width:640px) { .color-plane { height:160px; } .workshop-settings .bits-control { padding-left:10px; padding-right:10px; gap:7px; } .workshop-settings .bits-control [data-slot="field-label"] { font-size:12px; } }
+
+/* The catalogue stays fully visible by default; groups describe the geometry. */
+.catalogue-toolbar { display:flex; align-items:center; gap:12px; margin-bottom:32px; flex-wrap:wrap; }
+.catalogue-toolbar input { flex:1; min-width:220px; height:40px; padding:8px 12px; border:1px solid var(--border); border-radius:12px; background:#fff; font-size:14px; color:#18181b; }
+.catalogue-toolbar input::placeholder { color:#71717a; }
+.catalogue-toolbar select { width:auto; min-width:190px; }
+.catalogue-toolbar>span { color:var(--muted-foreground); font-size:13px; white-space:nowrap; }
+.catalogue-group { margin-bottom:36px; }
+.catalogue-group-heading { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+.catalogue-group-heading h2 { font-size:18px; font-weight:750; }
+.catalogue-group-heading>span { color:#71717a; font-size:12px; background:#ededed; border-radius:6px; padding:2px 7px; }
+.recommendation-pattern { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; width:200px; }
+.recommendation-pattern .shape-glyph { width:58px; height:50px; }
+.recommendation-separator { display:flex; flex-direction:column; align-items:center; gap:8px; color:#71717a; font-size:13px; }
+.recommendation-separator .shape-glyph { width:160px; height:45px; color:#18181b; }
+@media(max-width:640px) {
+  .catalogue-toolbar { gap:10px; margin-bottom:24px; }
+  .catalogue-toolbar input { width:100%; min-width:0; flex-basis:100%; }
+  .catalogue-toolbar select { flex:1; min-width:0; }
+  .catalogue-group { margin-bottom:28px; }
+}
+
+.catalogue-group-heading>span { background:#FFF201; color:#18181b; font-weight:700; }
+.emotion-wheel { width:min(100%,360px); margin:18px auto 0; isolation:isolate; }
+.emotion-petal { position:absolute; inset:auto; width:100%; height:100%; padding:0; border:0; background:transparent; cursor:pointer; }
+.emotion-petal svg { width:100%; height:100%; display:block; }
+.emotion-band-line { fill:none; stroke:#18181b; stroke-opacity:.22; stroke-width:1; }
+.emotion-petal-outline { fill:none; stroke-width:1; stroke-opacity:.3; transition:stroke-width 160ms ease,stroke-opacity 160ms ease; }
+.emotion-petal:hover .emotion-petal-outline { stroke-width:2.5; stroke-opacity:.8; }
+.emotion-petal[aria-pressed="true"] .emotion-petal-outline { stroke-width:2.5; stroke-opacity:1; }
+.emotion-petal:focus-visible { outline:none; }
+.emotion-petal:focus-visible .emotion-petal-outline { stroke:#18181b; stroke-width:5; stroke-opacity:1; }
+.emotion-petal:hover svg { filter:brightness(.97); }
+.emotion-petal-label { position:absolute; transform:translate(-50%,-50%); font-size:14px; line-height:1.3; font-weight:650; color:#18181b; pointer-events:none; white-space:nowrap; }
+.emotion-wheel-guides { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:-1; }
+.emotion-wheel-guides circle { fill:none; stroke:#a1a1aa; stroke-width:1; stroke-dasharray:3 5; }
+.emotion-wheel-center { inset:42%; padding:4px; pointer-events:none; border-color:#d4d4d8; box-shadow:none; }
+.emotion-wheel-center .shape-glyph { width:100%; height:100%; }
+.family-modal .emotion-wheel-caption { text-align:center; margin:0 0 20px; font-weight:700; color:#52525b; }

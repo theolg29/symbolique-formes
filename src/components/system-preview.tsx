@@ -1,14 +1,14 @@
 import { useState, type CSSProperties } from 'react'
 import { ArrowRight, CalendarDays, Check, Clock3, MapPin, MoveUpRight } from 'lucide-react'
 import { ShapeGlyph } from './shape-glyph'
-import type { ShapeSystem } from '@/lib/model'
+import { isButtonShape, type ShapeSystem } from '@/lib/model'
 
 export function SystemPreview({ system, mode, label }: { system: ShapeSystem; mode: string; label: string }) {
   const [reserved, setReserved] = useState(false)
   const [email, setEmail] = useState('')
-  const decorative = ['organic', 'triangle'].includes(system.family)
-  const radius = ['pill', 'circle'].includes(system.family) ? system.height / 2 : system.radius
-  const style = { '--sample-radius': `${radius}px`, '--sample-outer': `${system.outer}px`, '--sample-padding': `${system.padding}px`, '--sample-height': `${system.height}px`, '--sample-fg': system.foreground, '--sample-bg': system.background } as CSSProperties
+  const decorative = !isButtonShape(system.family)
+  const radius = ['pill', 'circle'].includes(system.family) ? system.height / 2 : decorative ? 8 : system.radius
+  const style = { '--sample-radius': `${radius}px`, '--sample-outer': `${decorative ? 24 : system.outer}px`, '--sample-padding': `${system.padding}px`, '--sample-height': `${system.height}px`, '--sample-fg': system.foreground, '--sample-bg': system.background } as CSSProperties
 
   if (mode === 'brand') return <div className="brand-preview" style={style}>
     <div className="brand-top"><span>studio terre</span><MoveUpRight size={18}/></div>
